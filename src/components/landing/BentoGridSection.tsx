@@ -80,7 +80,7 @@ export const BentoGridSection: React.FC = () => {
               </p>
             </div>
             <div className="cs-card-sub-hint">
-              Integrated Room PIN system: <code>NAVI-MID1</code>
+              Integrated Room PIN system: <code>NAVI-SU5Y</code>
             </div>
           </div>
 

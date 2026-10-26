@@ -101,7 +101,7 @@ export const RoomHeaderCard: React.FC<RoomHeaderCardProps> = ({
                 type="text"
                 value={inputCode}
                 onChange={(e) => setInputCode(e.target.value)}
-                placeholder="e.g. NAVI-MID1"
+                placeholder="e.g. NAVI-SU5Y"
                 className="switch-room-input"
                 autoFocus
               />

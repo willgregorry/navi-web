@@ -25,7 +25,7 @@ const TESTIMONIALS = [
     quote:
       '“The native Win32 kiosk engine is rock-solid. Students cannot bypass it with Alt+Tab or WinKey. Truly the highest engineering standard of proctoring software.”',
     author: 'Bambang Pratama, S.T.',
-    role: 'System Administrator, National Competitive Coding Olympiad',
+    role: 'System Administrator, Computer Science Examination Center',
     initials: 'BP',
   },
 ];
@@ -63,8 +63,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
         {/* Title & Desc */}
         <div className="cs-hero-title-box">
           <h1 className="cs-hero-title">
-            The Pro Exam Environment for <br />
-            <span className="cs-monochrome-title">Competitive Programming</span>
+            The Pro Environment for <br />
+            <span className="cs-monochrome-title">Programming Examinations</span>
           </h1>
           <p className="cs-hero-desc">
             Navi combines a high-security locked-down kiosk client with a pedagogical Socratic AI assistant. Students get real-time conceptual guidance while instructors maintain complete academic integrity.
@@ -105,7 +105,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
                   KIOSK ACTIVE · ALT+TAB DISABLED
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
-                  NAVI-MID1
+                  NAVI-SU5Y
                 </span>
               </div>
               <div style={{ width: '48px' }} />
@@ -186,7 +186,7 @@ Reflect on the maximum upper bound for variable i in your loop!"`}</code>
 [10:02:15] Alt+Tab, WinKey, TaskMgr disabled: ACTIVE
 [10:05:32] Run Tests executed: 4/4 passed (Memory: 14.2MB)
 [10:06:10] Hint request dispatched: "Algorithmic step efficiency" (Hint 2/5)
-[10:06:12] Telemetry synchronized with Teacher Console (Room: NAVI-MID1)`}</code>
+[10:06:12] Telemetry synchronized with Teacher Console (Room: NAVI-SU5Y)`}</code>
                   </pre>
                 )}
               </div>

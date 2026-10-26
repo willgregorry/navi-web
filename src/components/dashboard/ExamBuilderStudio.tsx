@@ -47,7 +47,7 @@ export const ExamBuilderStudio: React.FC<ExamBuilderStudioProps> = ({
   onSubmit,
 }) => {
   // Global Exam Config
-  const [examTitle, setExamTitle] = useState('Computer Science Algorithm Assessment 2026');
+  const [examTitle, setExamTitle] = useState('Algorithms & Data Structures Examination');
   const [durationMinutes, setDurationMinutes] = useState(120);
   const [hintQuota, setHintQuota] = useState(5);
   const [allowSyntax, setAllowSyntax] = useState(true);
@@ -184,8 +184,8 @@ export const ExamBuilderStudio: React.FC<ExamBuilderStudioProps> = ({
   };
 
   // Preset Template Loader
-  const handleLoadOlympiadPreset = () => {
-    setExamTitle('National Collegiate Programming Olympiad 2026');
+  const handleLoadExamPreset = () => {
+    setExamTitle('Algorithms & Data Structures Examination');
     setDurationMinutes(120);
     setHintQuota(5);
     setAllowSyntax(true);
@@ -332,9 +332,9 @@ export const ExamBuilderStudio: React.FC<ExamBuilderStudioProps> = ({
           <div className="studio-top-actions">
             <button
               type="button"
-              onClick={handleLoadOlympiadPreset}
+              onClick={handleLoadExamPreset}
               className="studio-btn preset-btn"
-              title="Load 3-problem competitive programming template"
+              title="Load standard 3-problem exam template"
             >
               <Wand2 size={14} />
               <span>Load Preset Template</span>

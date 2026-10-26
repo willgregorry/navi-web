@@ -9,11 +9,11 @@ import {
   type BackendProblemResponse,
 } from '../services/api/teacherRoomService';
 
-export function useTeacherDashboard(initialRoomCode: string = 'NAVI-MID1') {
+export function useTeacherDashboard(initialRoomCode: string = 'NAVI-SU5Y') {
   const [roomCode, setRoomCode] = useState<string>(initialRoomCode);
   const [exam, setExam] = useState<ExamConfig>({
     roomCode: initialRoomCode,
-    title: 'Loading Exam Room...',
+    title: 'Algorithms & Data Structures Midterm Examination',
     durationMinutes: 120,
     maxHints: 5,
     allowSyntaxHints: true,

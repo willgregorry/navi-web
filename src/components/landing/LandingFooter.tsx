@@ -106,7 +106,7 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({ onOpenDashboard })
         {/* Bottom Bar */}
         <div className="cs-footer-bottom">
           <div>
-            © {new Date().getFullYear()} Navi Systems. Built for competitive programming excellence and academic integrity.
+            © {new Date().getFullYear()} Navi Systems. Built for programming examination excellence and academic integrity.
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>

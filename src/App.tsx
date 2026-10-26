@@ -20,7 +20,7 @@ export const App: React.FC = () => {
     isRefreshing,
     refreshRoom,
     handleCreateRoom,
-  } = useTeacherDashboard('NAVI-MID1');
+  } = useTeacherDashboard('NAVI-SU5Y');
 
   if (view === 'landing') {
     return <LandingPageView onOpenDashboard={() => setView('dashboard')} />;

@@ -45,7 +45,7 @@ export const WorkflowSection: React.FC = () => {
             </h2>
           </div>
           <p className="cs-section-desc">
-            Designed for high-capacity university computer laboratories and competitive coding olympiads without complex server installations.
+            Designed for high-capacity university computer laboratories, certification centers, and programming examinations without complex server installations.
           </p>
         </div>
 
