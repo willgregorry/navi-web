@@ -8,7 +8,7 @@ import {
   type BackendStudentSummary,
 } from '../services/api/teacherRoomService';
 
-export function useTeacherDashboard(initialRoomCode: string = 'NAVI-8392') {
+export function useTeacherDashboard(initialRoomCode: string = 'NAVI-7RX5') {
   const [roomCode, setRoomCode] = useState<string>(initialRoomCode);
   const [exam, setExam] = useState<ExamConfig>({
     roomCode: initialRoomCode,

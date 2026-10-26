@@ -19,7 +19,7 @@ export const App: React.FC = () => {
     students,
     setStudents,
     handleCreateRoom,
-  } = useTeacherDashboard('NAVI-8392');
+  } = useTeacherDashboard('NAVI-7RX5');
 
   // Demo audio tool: simulate student Alt+Tab violation locally if testing siren
   const handleSimulateViolation = () => {
