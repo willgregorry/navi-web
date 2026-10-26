@@ -8,13 +8,13 @@ import {
   type BackendStudentSummary,
 } from '../services/api/teacherRoomService';
 
-export function useTeacherDashboard(initialRoomCode: string = 'NAVI-7RX5') {
+export function useTeacherDashboard(initialRoomCode: string = 'NAVI-MID1') {
   const [roomCode, setRoomCode] = useState<string>(initialRoomCode);
   const [exam, setExam] = useState<ExamConfig>({
     roomCode: initialRoomCode,
-    title: 'Pengecekan Bilangan Prima (Prime Numbers)',
-    description: 'Siswa diminta membuat fungsi is_prime(n) yang menguji apakah n prima atau bukan dengan efisiensi memadai.',
-    starterCode: 'def is_prime(n):\n    pass\n',
+    title: 'National Collegiate Programming Olympiad 2026',
+    description: 'Solve the algorithmic challenges in this live proctored assessment.',
+    starterCode: 'def solution():\n    pass\n',
     maxHints: 5,
     allowSyntaxHints: true,
     allowLogicHints: true,
