@@ -1,0 +1,237 @@
+import React, { useState } from 'react';
+import { Download, Copy, Check, ShieldCheck, FileArchive, Server, Cpu, HardDrive, CheckCircle2 } from 'lucide-react';
+
+export const DownloadSection: React.FC = () => {
+  const [copiedHash, setCopiedHash] = useState(false);
+  const [downloadStatus, setDownloadStatus] = useState<string | null>(null);
+
+  const sha256Checksum = '8f3c7a91b2e4d058c67a3f81e9b2075a4dc38101a89c3b889e4726bf7b219014';
+
+  const handleCopyChecksum = () => {
+    navigator.clipboard.writeText(sha256Checksum);
+    setCopiedHash(true);
+    setTimeout(() => setCopiedHash(false), 2500);
+  };
+
+  const handleDownload = (filename: string) => {
+    setDownloadStatus(`Initiating download for ${filename}... (Placeholder)`);
+    setTimeout(() => {
+      setDownloadStatus(null);
+    }, 4000);
+  };
+
+  return (
+    <section id="download" className="cs-section">
+      <div className="cs-section-inner">
+        <div className="cs-section-header">
+          <div>
+            <span className="cs-section-tag">Direct Distribution</span>
+            <h2 className="cs-section-title">
+              Download Navi for <br />
+              <span className="cs-gradient-text">Windows 10 / 11 (x64)</span>
+            </h2>
+          </div>
+          <p className="cs-section-desc">
+            Get the production binary with the pre-compiled native Win32 keyboard hook and bundled Python 3.11 execution runtime. Ready for computer lab deployment.
+          </p>
+        </div>
+
+        {downloadStatus && (
+          <div
+            style={{
+              marginBottom: '24px',
+              padding: '14px 20px',
+              borderRadius: '12px',
+              background: 'var(--cs-surface-elevated)',
+              border: '1px solid var(--cs-brand-blue)',
+              color: 'var(--cs-text-main)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              fontSize: '14px',
+              fontFamily: 'Fira Code, monospace',
+            }}
+          >
+            <CheckCircle2 size={18} style={{ color: 'var(--cs-brand-blue)' }} />
+            <span>{downloadStatus}</span>
+          </div>
+        )}
+
+        <div className="cs-download-grid">
+          {/* Main Installer Card */}
+          <div className="cs-main-installer-card">
+            <div className="cs-installer-header">
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--cs-text-main)' }}>
+                    Navi Windows Setup (.exe)
+                  </span>
+                  <span className="cs-version-pill" style={{ color: 'var(--cs-brand-blue)' }}>
+                    v1.0.4
+                  </span>
+                </div>
+                <div style={{ fontSize: '13px', color: 'var(--cs-text-secondary)', marginTop: '4px' }}>
+                  Standard Windows Installer · Recommended for single devices & student laptops
+                </div>
+              </div>
+              <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
+                84.2 MB
+              </span>
+            </div>
+
+            <button
+              type="button"
+              className="cs-btn-download-big"
+              onClick={() => handleDownload('Navi-Setup-1.0.4-x64.exe')}
+            >
+              <Download size={20} />
+              <span>Download Navi-Setup-1.0.4.exe</span>
+            </button>
+
+            <div className="cs-hash-row">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflow: 'hidden' }}>
+                <span style={{ color: 'var(--cs-text-dim)' }}>SHA-256:</span>
+                <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                  {sha256Checksum.slice(0, 32)}...
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={handleCopyChecksum}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: 'var(--cs-text-secondary)',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  fontSize: '11px',
+                  fontWeight: 600,
+                }}
+              >
+                {copiedHash ? (
+                  <>
+                    <Check size={13} style={{ color: 'var(--cs-success-green)' }} />
+                    <span style={{ color: 'var(--cs-success-green)' }}>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={13} />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Secondary Downloads: Portable ZIP & MSI */}
+          <div className="cs-secondary-downloads">
+            <div className="cs-alt-download-card">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <div className="cs-bento-icon-box" style={{ marginBottom: 0 }}>
+                  <FileArchive size={20} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)' }}>
+                    Portable Standalone (.zip)
+                  </div>
+                  <div style={{ fontSize: '12.5px', color: 'var(--cs-text-secondary)' }}>
+                    Zero-installation executable for flash drives · 91.5 MB
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="cs-tab-btn"
+                onClick={() => handleDownload('Navi-Portable-1.0.4.zip')}
+                style={{ border: '1px solid var(--cs-divider)', background: 'var(--cs-surface-elevated)' }}
+              >
+                Download
+              </button>
+            </div>
+
+            <div className="cs-alt-download-card">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <div className="cs-bento-icon-box" style={{ marginBottom: 0 }}>
+                  <Server size={20} />
+                </div>
+                <div>
+                  <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)' }}>
+                    Lab Enterprise Package (.msi)
+                  </div>
+                  <div style={{ fontSize: '12.5px', color: 'var(--cs-text-secondary)' }}>
+                    Quiet install for Active Directory Group Policy (GPO)
+                  </div>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="cs-tab-btn"
+                onClick={() => handleDownload('Navi-Enterprise-1.0.4.msi')}
+                style={{ border: '1px solid var(--cs-divider)', background: 'var(--cs-surface-elevated)' }}
+              >
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* System Requirements Table */}
+        <div className="cs-specs-table">
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
+              <Cpu size={14} />
+              <span>OPERATING SYSTEM</span>
+            </div>
+            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+              Windows 10 / 11
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>
+              64-bit architecture (x64, ARM64 via emulation)
+            </div>
+          </div>
+
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
+              <HardDrive size={14} />
+              <span>MINIMUM MEMORY</span>
+            </div>
+            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+              4 GB RAM
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>
+              Low memory footprint (~120MB idling)
+            </div>
+          </div>
+
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
+              <ShieldCheck size={14} />
+              <span>SECURITY HOOK</span>
+            </div>
+            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+              Win32 WH_KEYBOARD_LL
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>
+              Standard user privileges (no root/admin needed)
+            </div>
+          </div>
+
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
+              <Download size={14} />
+              <span>RELEASE CHANNEL</span>
+            </div>
+            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+              Stable v1.0.4-rc
+            </div>
+            <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>
+              Verified clean by Windows Defender
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

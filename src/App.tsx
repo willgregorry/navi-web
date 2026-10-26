@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { LandingPageView } from './components/landing/LandingPageView';
 import { TeacherNavbar } from './components/layout/TeacherNavbar';
 import { RoomHeaderCard } from './components/dashboard/RoomHeaderCard';
 import { LiveStudentTable } from './components/dashboard/LiveStudentTable';
@@ -54,6 +55,7 @@ const INITIAL_STUDENTS: StudentSession[] = [
 ];
 
 export const App: React.FC = () => {
+  const [view, setView] = useState<'landing' | 'dashboard'>('landing');
   const [exam, setExam] = useState<ExamConfig>(INITIAL_EXAM);
   const [students, setStudents] = useState<StudentSession[]>(INITIAL_STUDENTS);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -84,12 +86,17 @@ export const App: React.FC = () => {
     }, 3000);
   };
 
+  if (view === 'landing') {
+    return <LandingPageView onOpenDashboard={() => setView('dashboard')} />;
+  }
+
   const totalViolations = students.reduce((acc, curr) => acc + curr.violationCount, 0);
 
   return (
     <div className="teacher-app-container">
       <TeacherNavbar
         onNewExam={() => setIsModalOpen(true)}
+        onBackToLanding={() => setView('landing')}
         activeCount={students.length}
         violationCount={totalViolations}
       />
