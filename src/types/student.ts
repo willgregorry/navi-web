@@ -1,4 +1,4 @@
-export type StudentStatus = 'idle' | 'coding' | 'error' | 'passed';
+export type StudentStatus = 'idle' | 'coding' | 'error' | 'passed' | 'submitted';
 
 export interface StudentSession {
   id: string;
@@ -6,8 +6,11 @@ export interface StudentSession {
   studentId: string; // NIM
   startTime: string;
   status: StudentStatus;
+  statusRaw: string;
   hintsUsed: number;
   violationCount: number;
-  isViolating: boolean; // true during active alt-tab blur
-  lastViolationTime?: string;
+  totalScore: number;
+  isSubmitted: boolean;
+  submittedAt?: string | null;
+  isViolating?: boolean;
 }

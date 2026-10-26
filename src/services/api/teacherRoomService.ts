@@ -1,5 +1,11 @@
 import { ENV } from '../../config/env';
 
+export interface BackendTestCaseCreate {
+  input_data?: string;
+  expected_output: string;
+  is_hidden?: boolean;
+}
+
 export interface BackendProblemCreate {
   title: string;
   difficulty?: 'Easy' | 'Medium' | 'Hard';
@@ -8,11 +14,7 @@ export interface BackendProblemCreate {
   description: string;
   constraints?: string[];
   starter_code?: string;
-  test_cases: {
-    input_data?: string;
-    expected_output: string;
-    is_hidden?: boolean;
-  }[];
+  test_cases: BackendTestCaseCreate[];
 }
 
 export interface BackendRoomCreatePayload {
@@ -37,6 +39,25 @@ export interface BackendStudentSummary {
   submitted_at: string | null;
 }
 
+export interface BackendProblemResponse {
+  id: number;
+  exam_session_id?: number;
+  title: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard' | string;
+  points: number;
+  category: string;
+  description: string;
+  constraints?: string[];
+  starter_code?: string;
+  test_cases?: {
+    id: number;
+    problem_id?: number;
+    input_data?: string;
+    expected_output: string;
+    is_hidden?: boolean;
+  }[];
+}
+
 export interface BackendRoomDetailResponse {
   id: number;
   room_code: string;
@@ -48,13 +69,13 @@ export interface BackendRoomDetailResponse {
   allow_syntax_hints: boolean;
   allow_logic_hints: boolean;
   is_active: boolean;
-  problems: any[];
+  problems: BackendProblemResponse[];
   students: BackendStudentSummary[];
 }
 
 const BASE_URL = ENV.API_URL.replace(/\/+$/, '');
 
-export async function createExamRoomApi(payload: BackendRoomCreatePayload) {
+export async function createExamRoomApi(payload: BackendRoomCreatePayload): Promise<BackendRoomDetailResponse> {
   const res = await fetch(`${BASE_URL}/rooms`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },

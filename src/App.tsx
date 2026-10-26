@@ -3,48 +3,24 @@ import { LandingPageView } from './components/landing/LandingPageView';
 import { TeacherNavbar } from './components/layout/TeacherNavbar';
 import { RoomHeaderCard } from './components/dashboard/RoomHeaderCard';
 import { LiveStudentTable } from './components/dashboard/LiveStudentTable';
-import { CreateExamModal } from './components/dashboard/CreateExamModal';
-import { playViolationBeep } from './services/audio/beepAlert';
+import { ExamBuilderStudio } from './components/dashboard/ExamBuilderStudio';
 import { useTeacherDashboard } from './hooks/useTeacherDashboard';
 import './index.css';
 
 export const App: React.FC = () => {
   const [view, setView] = useState<'landing' | 'dashboard'>('landing');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isStudioOpen, setIsStudioOpen] = useState(false);
 
   // Real backend connection hook for Teacher Console
   const {
+    roomCode,
+    setRoomCode,
     exam,
-    setExam,
     students,
-    setStudents,
+    isRefreshing,
+    refreshRoom,
     handleCreateRoom,
   } = useTeacherDashboard('NAVI-MID1');
-
-  // Demo audio tool: simulate student Alt+Tab violation locally if testing siren
-  const handleSimulateViolation = () => {
-    playViolationBeep();
-
-    setStudents((prev) =>
-      prev.map((s, idx) => {
-        if (idx === 0) {
-          return {
-            ...s,
-            violationCount: s.violationCount + 1,
-            isViolating: true,
-            status: 'error',
-          };
-        }
-        return s;
-      })
-    );
-
-    setTimeout(() => {
-      setStudents((prev) =>
-        prev.map((s, idx) => (idx === 0 ? { ...s, isViolating: false } : s))
-      );
-    }, 3000);
-  };
 
   if (view === 'landing') {
     return <LandingPageView onOpenDashboard={() => setView('dashboard')} />;
@@ -55,32 +31,36 @@ export const App: React.FC = () => {
   return (
     <div className="teacher-app-container">
       <TeacherNavbar
-        onNewExam={() => setIsModalOpen(true)}
+        onNewExam={() => setIsStudioOpen(true)}
         onBackToLanding={() => setView('landing')}
         activeCount={students.length}
         violationCount={totalViolations}
+        roomCode={roomCode}
       />
 
       <main className="dashboard-content">
         <RoomHeaderCard
           exam={exam}
           studentCount={students.length}
-          onSimulateViolation={handleSimulateViolation}
+          violationCount={totalViolations}
+          isRefreshing={isRefreshing}
+          onRefresh={() => refreshRoom()}
+          onSwitchRoom={(newCode) => {
+            setRoomCode(newCode);
+            refreshRoom(newCode);
+          }}
         />
 
-        <LiveStudentTable students={students} />
+        <LiveStudentTable students={students} maxHints={exam.maxHints} />
       </main>
 
-      <CreateExamModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onCreate={async (newConfig) => {
-          try {
-            await handleCreateRoom(newConfig);
-          } catch {
-            setExam(newConfig);
-          }
-          setIsModalOpen(false);
+      {/* UX-Friendly Multi-Problem Exam & Problem Builder Studio */}
+      <ExamBuilderStudio
+        isOpen={isStudioOpen}
+        onClose={() => setIsStudioOpen(false)}
+        onSubmit={async (payload) => {
+          await handleCreateRoom(payload);
+          setIsStudioOpen(false);
         }}
       />
     </div>

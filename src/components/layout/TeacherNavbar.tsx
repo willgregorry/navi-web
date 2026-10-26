@@ -1,10 +1,12 @@
-import { ShieldAlert, PlusCircle, ArrowLeft } from 'lucide-react';
+import React from 'react';
+import { ShieldAlert, Plus, ArrowLeft, Radio } from 'lucide-react';
 
 interface TeacherNavbarProps {
   onNewExam: () => void;
   onBackToLanding?: () => void;
   activeCount: number;
   violationCount: number;
+  roomCode: string;
 }
 
 export const TeacherNavbar: React.FC<TeacherNavbarProps> = ({
@@ -12,55 +14,66 @@ export const TeacherNavbar: React.FC<TeacherNavbarProps> = ({
   onBackToLanding,
   activeCount,
   violationCount,
+  roomCode,
 }) => {
   return (
     <nav className="teacher-navbar">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div className="nav-left">
         {onBackToLanding && (
           <button
             onClick={onBackToLanding}
-            className="new-exam-btn"
-            style={{
-              background: 'transparent',
-              border: '1px solid var(--border-subtle)',
-              color: 'var(--text-secondary)',
-            }}
-            title="Kembali ke Landing Page"
+            className="nav-back-btn"
+            title="Return to Landing Page"
           >
-            <ArrowLeft size={15} />
-            <span>Beranda</span>
+            <ArrowLeft size={14} />
+            <span>Portal</span>
           </button>
         )}
 
         <div className="nav-brand">
-          <div className="brand-icon">
-            <img src="/navi-favicon.png" alt="Navi" className="nav-logo-img" />
+          <div className="brand-logo-frame">
+            <img src="/navi-favicon.png" alt="Navi" className="brand-logo-img" />
           </div>
-          <div>
-            <span className="brand-name">Navi Educator</span>
-            <span className="brand-sub">Dasbor Pengawas Ujian</span>
+          <div className="brand-titles">
+            <div className="brand-heading-row">
+              <span className="brand-title">Navi Educator</span>
+              <span className="brand-badge-proctor">PROCTOR</span>
+            </div>
+            <span className="brand-sub">Real-Time Examination Telemetry</span>
           </div>
         </div>
       </div>
 
-      <div className="nav-stats">
-        <div className="stat-pill">
-          <span className="stat-dot green" />
-          <span>{activeCount} Siswa Aktif</span>
+      <div className="nav-center">
+        <div className="room-indicator-pill">
+          <span className="indicator-label">ROOM</span>
+          <span className="indicator-code">{roomCode}</span>
         </div>
 
-        {violationCount > 0 && (
-          <div className="stat-pill violation">
+        <div className="nav-stat-pill">
+          <span className="stat-dot pulse-dot green" />
+          <span>{activeCount} Active Candidates</span>
+        </div>
+
+        {violationCount > 0 ? (
+          <div className="nav-stat-pill violation-alert">
             <ShieldAlert size={14} />
-            <span>{violationCount} Pelanggaran Terdeteksi</span>
+            <span>{violationCount} Violations Logged</span>
+          </div>
+        ) : (
+          <div className="nav-stat-pill clean-status">
+            <Radio size={12} />
+            <span>Integrity Guard 100%</span>
           </div>
         )}
       </div>
 
-      <button onClick={onNewExam} className="new-exam-btn">
-        <PlusCircle size={15} />
-        <span>Buat Sesi Ujian Baru</span>
-      </button>
+      <div className="nav-right">
+        <button onClick={onNewExam} className="create-exam-btn">
+          <Plus size={15} />
+          <span>New Exam Session</span>
+        </button>
+      </div>
     </nav>
   );
 };
