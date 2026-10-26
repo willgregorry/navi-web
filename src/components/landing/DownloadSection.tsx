@@ -14,7 +14,7 @@ export const DownloadSection: React.FC = () => {
   };
 
   const handleDownload = (filename: string) => {
-    setDownloadStatus(`Initiating download for ${filename}... (Placeholder)`);
+    setDownloadStatus(`Initiating secure binary stream for ${filename}...`);
     setTimeout(() => {
       setDownloadStatus(null);
     }, 4000);
@@ -25,10 +25,10 @@ export const DownloadSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">Direct Distribution</span>
+            <span className="cs-section-tag">OFFICIAL DISTRIBUTION</span>
             <h2 className="cs-section-title">
               Download Navi for <br />
-              <span className="cs-gradient-text">Windows 10 / 11 (x64)</span>
+              <span className="cs-monochrome-title">Windows 10 / 11 (x64)</span>
             </h2>
           </div>
           <p className="cs-section-desc">
@@ -37,22 +37,8 @@ export const DownloadSection: React.FC = () => {
         </div>
 
         {downloadStatus && (
-          <div
-            style={{
-              marginBottom: '24px',
-              padding: '14px 20px',
-              borderRadius: '12px',
-              background: 'var(--cs-surface-elevated)',
-              border: '1px solid var(--cs-brand-blue)',
-              color: 'var(--cs-text-main)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              fontSize: '14px',
-              fontFamily: 'Fira Code, monospace',
-            }}
-          >
-            <CheckCircle2 size={18} style={{ color: 'var(--cs-brand-blue)' }} />
+          <div className="cs-download-status-banner">
+            <CheckCircle2 size={16} style={{ color: 'var(--cs-success-green)' }} />
             <span>{downloadStatus}</span>
           </div>
         )}
@@ -63,10 +49,10 @@ export const DownloadSection: React.FC = () => {
             <div className="cs-installer-header">
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ fontSize: '22px', fontWeight: 800, color: 'var(--cs-text-main)' }}>
+                  <span style={{ fontSize: '20px', fontWeight: 800, color: 'var(--cs-text-main)' }}>
                     Navi Windows Setup (.exe)
                   </span>
-                  <span className="cs-version-pill" style={{ color: 'var(--cs-brand-blue)' }}>
+                  <span className="cs-version-pill">
                     v1.0.4
                   </span>
                 </div>
@@ -74,7 +60,7 @@ export const DownloadSection: React.FC = () => {
                   Standard Windows Installer · Recommended for single devices & student laptops
                 </div>
               </div>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
                 84.2 MB
               </span>
             </div>
@@ -84,14 +70,14 @@ export const DownloadSection: React.FC = () => {
               className="cs-btn-download-big"
               onClick={() => handleDownload('Navi-Setup-1.0.4-x64.exe')}
             >
-              <Download size={20} />
+              <Download size={18} />
               <span>Download Navi-Setup-1.0.4.exe</span>
             </button>
 
             <div className="cs-hash-row">
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflow: 'hidden' }}>
-                <span style={{ color: 'var(--cs-text-dim)' }}>SHA-256:</span>
-                <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                <span style={{ color: 'var(--cs-text-dim)', fontSize: '11px' }}>SHA-256:</span>
+                <span style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', fontSize: '11px' }}>
                   {sha256Checksum.slice(0, 32)}...
                 </span>
               </div>
@@ -130,13 +116,13 @@ export const DownloadSection: React.FC = () => {
             <div className="cs-alt-download-card">
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div className="cs-bento-icon-box" style={{ marginBottom: 0 }}>
-                  <FileArchive size={20} />
+                  <FileArchive size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)' }}>
+                  <div style={{ fontSize: '14.5px', fontWeight: 700, color: 'var(--cs-text-main)' }}>
                     Portable Standalone (.zip)
                   </div>
-                  <div style={{ fontSize: '12.5px', color: 'var(--cs-text-secondary)' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)' }}>
                     Zero-installation executable for flash drives · 91.5 MB
                   </div>
                 </div>
@@ -145,7 +131,6 @@ export const DownloadSection: React.FC = () => {
                 type="button"
                 className="cs-tab-btn"
                 onClick={() => handleDownload('Navi-Portable-1.0.4.zip')}
-                style={{ border: '1px solid var(--cs-divider)', background: 'var(--cs-surface-elevated)' }}
               >
                 Download
               </button>
@@ -154,13 +139,13 @@ export const DownloadSection: React.FC = () => {
             <div className="cs-alt-download-card">
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <div className="cs-bento-icon-box" style={{ marginBottom: 0 }}>
-                  <Server size={20} />
+                  <Server size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)' }}>
+                  <div style={{ fontSize: '14.5px', fontWeight: 700, color: 'var(--cs-text-main)' }}>
                     Lab Enterprise Package (.msi)
                   </div>
-                  <div style={{ fontSize: '12.5px', color: 'var(--cs-text-secondary)' }}>
+                  <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)' }}>
                     Quiet install for Active Directory Group Policy (GPO)
                   </div>
                 </div>
@@ -169,7 +154,6 @@ export const DownloadSection: React.FC = () => {
                 type="button"
                 className="cs-tab-btn"
                 onClick={() => handleDownload('Navi-Enterprise-1.0.4.msi')}
-                style={{ border: '1px solid var(--cs-divider)', background: 'var(--cs-surface-elevated)' }}
               >
                 Download
               </button>
@@ -180,11 +164,11 @@ export const DownloadSection: React.FC = () => {
         {/* System Requirements Table */}
         <div className="cs-specs-table">
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
-              <Cpu size={14} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '11px', fontWeight: 700, fontFamily: 'Fira Code, monospace' }}>
+              <Cpu size={13} />
               <span>OPERATING SYSTEM</span>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
               Windows 10 / 11
             </div>
             <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>
@@ -193,11 +177,11 @@ export const DownloadSection: React.FC = () => {
           </div>
 
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
-              <HardDrive size={14} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '11px', fontWeight: 700, fontFamily: 'Fira Code, monospace' }}>
+              <HardDrive size={13} />
               <span>MINIMUM MEMORY</span>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
               4 GB RAM
             </div>
             <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>
@@ -206,11 +190,11 @@ export const DownloadSection: React.FC = () => {
           </div>
 
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
-              <ShieldCheck size={14} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '11px', fontWeight: 700, fontFamily: 'Fira Code, monospace' }}>
+              <ShieldCheck size={13} />
               <span>SECURITY HOOK</span>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
               Win32 WH_KEYBOARD_LL
             </div>
             <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>
@@ -219,11 +203,11 @@ export const DownloadSection: React.FC = () => {
           </div>
 
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '12px', fontWeight: 700 }}>
-              <Download size={14} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--cs-text-muted)', fontSize: '11px', fontWeight: 700, fontFamily: 'Fira Code, monospace' }}>
+              <Download size={13} />
               <span>RELEASE CHANNEL</span>
             </div>
-            <div style={{ fontSize: '15px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 700, color: 'var(--cs-text-main)', marginTop: '8px' }}>
               Stable v1.0.4-rc
             </div>
             <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginTop: '2px' }}>

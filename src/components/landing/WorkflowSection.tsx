@@ -6,29 +6,29 @@ const STEPS = [
     num: '01',
     title: 'Configure Room & Policy',
     desc: 'The instructor launches the Web Console, defines problem specifications, starter templates, hidden test cases, and sets max allowed Socratic hints.',
-    icon: <Settings size={20} />,
-    tag: 'Room Generator',
+    icon: <Settings size={18} />,
+    tag: 'Room Studio',
   },
   {
     num: '02',
     title: 'Client Kiosk Lock-In',
-    desc: 'Students launch the Navi Windows app and enter the Room Code (e.g. NAVI-8392). The Win32 native hook locks window focus immediately.',
-    icon: <Lock size={20} />,
+    desc: 'Students launch the Navi Windows app and enter the Room Code (e.g. NAVI-MID1). The Win32 native hook locks window focus immediately.',
+    icon: <Lock size={18} />,
     tag: 'Win32 Hook',
   },
   {
     num: '03',
     title: 'Socratic Cognitive Flow',
     desc: 'When encountering compilation or logic roadblocks, students consult the built-in AI tutor. Navi guides their critical thinking without giving away answers.',
-    icon: <Sparkles size={20} />,
-    tag: 'Guided Learning',
+    icon: <Sparkles size={18} />,
+    tag: 'Socratic Inquiry',
   },
   {
     num: '04',
     title: 'Real-time Proctor Audit',
     desc: 'Instructors observe live student test runs, execution times, hint usage, and any Alt+Tab tamper alerts in a centralized, real-time dashboard.',
-    icon: <BarChart3 size={20} />,
-    tag: 'Live Monitoring',
+    icon: <BarChart3 size={18} />,
+    tag: 'Live Telemetry',
   },
 ];
 
@@ -38,10 +38,10 @@ export const WorkflowSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">End-to-End Workflow</span>
+            <span className="cs-section-tag">EXAMINATION LIFECYCLE</span>
             <h2 className="cs-section-title">
               From Room Setup to Final Grade <br />
-              <span className="cs-gradient-text">in Four Frictionless Steps.</span>
+              <span className="cs-monochrome-title">in Four Frictionless Steps.</span>
             </h2>
           </div>
           <p className="cs-section-desc">
@@ -59,7 +59,7 @@ export const WorkflowSection: React.FC = () => {
                   </div>
                   <span className="cs-step-num">{step.num}</span>
                 </div>
-                <h3 className="cs-bento-title" style={{ fontSize: '18px', marginTop: '16px' }}>
+                <h3 className="cs-bento-title" style={{ fontSize: '17px', marginTop: '16px' }}>
                   {step.title}
                 </h3>
                 <p className="cs-bento-desc" style={{ marginTop: '8px' }}>

@@ -1,16 +1,17 @@
 /* ==========================================================================
    NAVI LANDING PAGE STYLESHEET
    CleanShot X Exact Layout Architecture with Brutalist Monochrome Design System
+   Matches navi-app obsidian precision and typography
    ========================================================================== */
 
 :root,
 [data-theme="dark"] {
-  --cs-canvas: #09090b;
-  --cs-surface: #121215;
-  --cs-surface-elevated: #18181b;
-  --cs-card: #202024;
-  --cs-card-subtle: #161619;
-  --cs-code: #000000;
+  --cs-canvas: #09090b;             /* Pure obsidian black */
+  --cs-surface: #121215;            /* Primary solid panel */
+  --cs-surface-elevated: #18181b;   /* Secondary raised panel */
+  --cs-card: rgba(24, 24, 27, 0.65);/* Glassmorphic card surface */
+  --cs-card-subtle: #161619;        /* Inset surface */
+  --cs-code: #000000;               /* Absolute contrast code black */
 
   --cs-text-main: #fafafa;
   --cs-text-secondary: #a1a1aa;
@@ -26,11 +27,11 @@
   --cs-btn-secondary-hover: #3f3f46;
 
   --cs-divider: rgba(255, 255, 255, 0.08);
+  --cs-border-subtle: #27272a;
   --cs-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   --cs-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
-  --cs-shadow-high: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
+  --cs-shadow-high: 0 20px 48px -12px rgba(0, 0, 0, 0.85);
 
-  --cs-brand-blue: #0d44e8;
   --cs-alarm-red: #ef4444;
   --cs-alarm-subtle: rgba(239, 68, 68, 0.12);
   --cs-success-green: #22c55e;
@@ -59,11 +60,11 @@
   --cs-btn-secondary-hover: #d4d4d8;
 
   --cs-divider: rgba(0, 0, 0, 0.08);
+  --cs-border-subtle: #e4e4e7;
   --cs-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.9);
   --cs-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.07);
   --cs-shadow-high: 0 16px 36px -6px rgba(0, 0, 0, 0.12);
 
-  --cs-brand-blue: #0d44e8;
   --cs-alarm-red: #dc2626;
   --cs-alarm-subtle: rgba(220, 38, 38, 0.1);
   --cs-success-green: #16a34a;
@@ -78,6 +79,7 @@
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  background-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
 }
 
 /* Sticky Header */
@@ -87,12 +89,13 @@
   left: 0;
   right: 0;
   height: 64px;
-  background-color: var(--cs-surface);
+  background-color: rgba(18, 18, 21, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--cs-divider);
   z-index: 100;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cs-header-inner {
@@ -117,73 +120,82 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--cs-brand-blue), #4338ca);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cs-divider);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   box-shadow: var(--cs-highlight);
 }
 
+.cs-brand-favicon-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
 .cs-brand-title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.02em;
+  color: var(--cs-text-main);
 }
 
 .cs-version-pill {
   font-family: 'Fira Code', monospace;
   font-size: 10px;
   font-weight: 700;
-  background: var(--cs-surface-elevated);
-  color: var(--cs-text-muted);
-  border: 1px solid var(--cs-divider);
   padding: 2px 7px;
   border-radius: 999px;
+  background: var(--cs-surface-elevated);
+  border: 1px solid var(--cs-divider);
+  color: var(--cs-text-muted);
 }
 
 .cs-nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin-left: 32px;
+  gap: 4px;
+  margin-left: 20px;
 }
 
 .cs-nav-link {
-  font-size: 14px;
+  padding: 6px 14px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--cs-text-secondary);
   text-decoration: none;
-  transition: color 0.15s ease;
+  border-radius: 8px;
+  transition: all 0.12s ease;
 }
 
 .cs-nav-link:hover {
   color: var(--cs-text-main);
+  background: var(--cs-surface-elevated);
 }
 
 .cs-header-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .cs-theme-btn {
   width: 36px;
   height: 36px;
-  border-radius: 10px;
-  background: var(--cs-surface-elevated);
+  border-radius: 8px;
+  background: transparent;
   border: 1px solid var(--cs-divider);
   color: var(--cs-text-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: var(--cs-highlight);
-  transition: all 0.15s ease;
+  transition: all 0.12s ease;
 }
 
 .cs-theme-btn:hover {
-  background: var(--cs-card);
+  background: var(--cs-surface-elevated);
   color: var(--cs-text-main);
 }
 
@@ -191,38 +203,38 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  background: var(--cs-surface-elevated);
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: transparent;
   border: 1px solid var(--cs-divider);
-  color: var(--cs-text-secondary);
-  font-size: 13.5px;
+  color: var(--cs-text-main);
+  font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
-  text-decoration: none;
-  transition: all 0.15s ease;
+  transition: all 0.12s ease;
 }
 
 .cs-teacher-btn:hover {
-  background: var(--cs-card);
-  color: var(--cs-text-main);
+  background: var(--cs-surface-elevated);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .cs-btn-download-nav {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  height: 38px;
+  height: 36px;
   padding: 0 16px;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--cs-btn-primary-bg);
   color: var(--cs-btn-primary-fg);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  transition: all 0.15s ease;
   box-shadow: var(--cs-highlight);
+  transition: all 0.12s ease;
 }
 
 .cs-btn-download-nav:hover {
@@ -233,11 +245,10 @@
 /* ==========================================================================
    HERO SECTION
    ========================================================================== */
-
 .cs-hero {
+  padding-top: 130px;
+  padding-bottom: 80px;
   position: relative;
-  padding: 120px 24px 80px;
-  overflow: hidden;
 }
 
 .cs-ambient-glow {
@@ -245,19 +256,16 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 1200px;
-  height: 550px;
-  background: radial-gradient(circle at 50% 15%, rgba(13, 68, 232, 0.14) 0%, transparent 70%);
+  width: 900px;
+  height: 450px;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
   pointer-events: none;
-  z-index: 0;
 }
 
 .cs-hero-container {
   max-width: 1240px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
+  padding: 0 24px;
 }
 
 .cs-badge-wrapper {
@@ -269,33 +277,40 @@
 .cs-announcement-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 7px 16px;
-  border-radius: 999px;
-  background: var(--cs-surface-elevated);
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--cs-divider);
-  color: var(--cs-text-main);
-  font-size: 13px;
-  font-weight: 600;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--cs-text-secondary);
   text-decoration: none;
   box-shadow: var(--cs-highlight);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .cs-announcement-badge:hover {
-  transform: scale(1.02);
+  color: var(--cs-text-main);
   border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
-.cs-badge-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(13, 68, 232, 0.2);
-  color: var(--cs-brand-blue);
+.cs-badge-favicon-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.cs-badge-favicon-img {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
 }
 
 .cs-hero-title-box {
@@ -305,28 +320,22 @@
 }
 
 .cs-hero-title {
-  font-size: 60px;
+  font-size: 58px;
   font-weight: 800;
-  letter-spacing: -1.8px;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
   color: var(--cs-text-main);
   margin-bottom: 16px;
 }
 
-.cs-gradient-text {
-  background: linear-gradient(135deg, #ffffff 30%, var(--cs-text-secondary) 70%, var(--cs-brand-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-[data-theme="light"] .cs-gradient-text {
-  background: linear-gradient(135deg, #09090b 40%, var(--cs-brand-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.cs-monochrome-title {
+  color: #ffffff;
+  display: inline-block;
+  letter-spacing: -0.03em;
 }
 
 .cs-hero-desc {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--cs-text-secondary);
   max-width: 700px;
@@ -346,16 +355,16 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  height: 52px;
+  height: 50px;
   padding: 0 28px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--cs-btn-primary-bg);
   color: var(--cs-btn-primary-fg);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  box-shadow: var(--cs-highlight);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
   transition: all 0.15s ease;
   text-decoration: none;
 }
@@ -369,13 +378,13 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  height: 52px;
+  height: 50px;
   padding: 0 22px;
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--cs-surface-elevated);
   border: 1px solid var(--cs-divider);
   color: var(--cs-text-main);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -389,7 +398,7 @@
 
 .cs-hero-guarantee {
   text-align: center;
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--cs-text-muted);
   margin-bottom: 56px;
 }
@@ -397,7 +406,6 @@
 /* ==========================================================================
    HERO DUAL SHOWCASE (MOCKUP + TESTIMONIAL)
    ========================================================================== */
-
 .cs-showcase-grid {
   display: grid;
   grid-template-columns: 7fr 5fr;
@@ -406,9 +414,11 @@
 }
 
 .cs-mockup-frame {
-  background: var(--cs-surface);
+  background: var(--cs-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--cs-divider);
-  border-radius: 24px;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--cs-shadow-high);
   display: flex;
@@ -416,10 +426,10 @@
 }
 
 .cs-mockup-titlebar {
-  height: 42px;
+  height: 40px;
   background: var(--cs-surface-elevated);
   border-bottom: 1px solid var(--cs-divider);
-  padding: 0 18px;
+  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -428,12 +438,12 @@
 .cs-traffic-lights {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 }
 
 .cs-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
 }
 .cs-dot-red { background: #ef4444; }
@@ -451,100 +461,101 @@
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .cs-mockup-body {
-  padding: 20px;
-  background: var(--cs-canvas);
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  background: #09090b;
 }
 
 .cs-mockup-tabs {
   display: flex;
-  align-items: center;
-  gap: 8px;
   border-bottom: 1px solid var(--cs-divider);
-  padding-bottom: 12px;
+  background: var(--cs-surface);
 }
 
 .cs-tab-btn {
+  padding: 8px 16px;
   font-family: 'Fira Code', monospace;
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  background: transparent;
+  font-size: 11px;
+  font-weight: 500;
   color: var(--cs-text-muted);
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--cs-divider);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.12s ease;
 }
 
 .cs-tab-btn.active {
-  background: var(--cs-surface-elevated);
+  background: #09090b;
   color: var(--cs-text-main);
-  border-color: var(--cs-divider);
-  box-shadow: var(--cs-highlight);
   font-weight: 600;
+  border-bottom: 1px solid #09090b;
 }
 
 .cs-mockup-codebox {
-  background: var(--cs-code);
-  border: 1px solid var(--cs-divider);
-  border-radius: 14px;
-  padding: 16px;
+  flex: 1;
+  padding: 20px;
   font-family: 'Fira Code', monospace;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.6;
-  color: var(--cs-text-secondary);
+  color: #fafafa;
   overflow-x: auto;
+  background: #000000;
 }
 
 .cs-flagged-line {
-  background: var(--cs-alarm-subtle);
-  border-left: 3px solid var(--cs-alarm-red);
-  margin: 0 -16px;
-  padding: 2px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 2px solid var(--cs-alarm-red);
+  padding-left: 8px;
+  color: #fca5a5;
+  margin: 2px 0;
 }
 
 .cs-mockup-footer {
+  height: 34px;
+  background: var(--cs-surface);
+  border-top: 1px solid var(--cs-divider);
+  padding: 0 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: 'Fira Code', monospace;
-  font-size: 11.5px;
-  color: var(--cs-text-muted);
-  padding-top: 8px;
+  font-size: 11px;
+  color: var(--cs-text-dim);
 }
 
 /* Testimonial Hero Card */
 .cs-testimonial-hero {
-  background: var(--cs-surface);
+  background: var(--cs-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--cs-divider);
-  border-radius: 24px;
-  padding: 36px;
-  box-shadow: var(--cs-shadow);
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: var(--cs-shadow-high);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .cs-testimonial-stars {
-  color: #fbbf24;
-  font-size: 18px;
+  color: #ffffff;
   letter-spacing: 2px;
-  margin-bottom: 24px;
+  font-size: 14px;
+  margin-bottom: 16px;
 }
 
 .cs-testimonial-quote {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--cs-text-main);
-  margin-bottom: 32px;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .cs-author-row {
@@ -558,12 +569,12 @@
 .cs-author-info {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .cs-author-avatar {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--cs-surface-elevated);
   border: 1px solid var(--cs-divider);
@@ -571,18 +582,18 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   color: var(--cs-text-main);
 }
 
 .cs-author-name {
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--cs-text-main);
 }
 
 .cs-author-role {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--cs-text-muted);
 }
 
@@ -593,8 +604,8 @@
 }
 
 .cs-slider-btn {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--cs-surface-elevated);
   border: 1px solid var(--cs-divider);
@@ -603,7 +614,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.12s ease;
 }
 
 .cs-slider-btn:hover {
@@ -614,9 +625,8 @@
 /* ==========================================================================
    PARTNERS MARQUEE
    ========================================================================== */
-
 .cs-marquee-section {
-  padding: 44px 0;
+  padding: 40px 0;
   border-top: 1px solid var(--cs-divider);
   border-bottom: 1px solid var(--cs-divider);
   background: var(--cs-surface);
@@ -625,12 +635,13 @@
 
 .cs-marquee-title {
   text-align: center;
-  font-size: 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--cs-text-muted);
-  margin-bottom: 24px;
+  letter-spacing: 0.1em;
+  color: var(--cs-text-dim);
+  margin-bottom: 20px;
 }
 
 .cs-marquee-track {
@@ -654,28 +665,28 @@
   align-items: center;
   gap: 10px;
   color: var(--cs-text-secondary);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .cs-partner-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
   background: var(--cs-surface-elevated);
   border: 1px solid var(--cs-divider);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--cs-text-muted);
 }
 
 /* ==========================================================================
-   SOCRATIC AI SPOTLIGHT SECTION
+   SECTION COMMONS
    ========================================================================== */
-
 .cs-section {
-  padding: 100px 24px;
+  padding: 88px 24px;
   border-bottom: 1px solid var(--cs-divider);
 }
 
@@ -689,119 +700,61 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 32px;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
 .cs-section-tag {
   font-family: 'Fira Code', monospace;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--cs-brand-blue);
-  background: rgba(13, 68, 232, 0.12);
-  border: 1px solid rgba(13, 68, 232, 0.25);
-  padding: 4px 10px;
+  letter-spacing: 0.08em;
+  color: var(--cs-text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cs-divider);
+  padding: 3px 10px;
   border-radius: 999px;
   display: inline-block;
   margin-bottom: 14px;
 }
 
 .cs-section-title {
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 800;
-  letter-spacing: -1px;
+  letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--cs-text-main);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .cs-section-desc {
-  font-size: 17px;
+  font-size: 16px;
   color: var(--cs-text-secondary);
   line-height: 1.6;
-  max-width: 680px;
-}
-
-.cs-socratic-demo-box {
-  background: var(--cs-surface);
-  border: 1px solid var(--cs-divider);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--cs-shadow);
-}
-
-.cs-demo-tab-bar {
-  height: 52px;
-  background: var(--cs-surface-elevated);
-  border-bottom: 1px solid var(--cs-divider);
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.cs-demo-grid {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  divide-x: 1px solid var(--cs-divider);
-}
-
-.cs-demo-left {
-  padding: 28px;
-  background: var(--cs-canvas);
-  border-right: 1px solid var(--cs-divider);
-}
-
-.cs-demo-right {
-  padding: 28px;
-  background: var(--cs-surface);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.cs-exception-alert {
-  margin-top: 18px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: var(--cs-alarm-subtle);
-  border: 1px solid rgba(239, 68, 68, 0.25);
-  font-family: 'Fira Code', monospace;
-  font-size: 12px;
-  color: var(--cs-alarm-red);
-}
-
-.cs-prompt-card {
-  background: var(--cs-surface-elevated);
-  border: 1px solid var(--cs-divider);
-  border-radius: 16px;
-  padding: 18px;
-  margin: 16px 0;
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--cs-text-main);
+  max-width: 640px;
 }
 
 /* ==========================================================================
-   CLEANSHOT 4-COLUMN BENTO GRID
+   BENTO GRID (NO AI SLOP - PURE MONOCHROME EDITORIAL BRUTALISM)
    ========================================================================== */
-
 .cs-bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .cs-bento-card {
-  background: var(--cs-surface);
+  background: var(--cs-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--cs-divider);
-  border-radius: 24px;
-  padding: 32px;
+  border-radius: 16px;
+  padding: 28px;
   box-shadow: var(--cs-shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.2s ease;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cs-bento-card:hover {
@@ -814,83 +767,233 @@
 }
 
 .cs-bento-icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   background: var(--cs-surface-elevated);
   border: 1px solid var(--cs-divider);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  color: #fafafa;
   box-shadow: var(--cs-highlight);
 }
 
+.cs-card-favicon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
 .cs-bento-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--cs-text-main);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
 
 .cs-bento-desc {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.6;
+  color: var(--cs-text-secondary);
+}
+
+.cs-bento-desc code,
+.cs-bento-desc kbd {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  background: #000000;
+  border: 1px solid var(--cs-divider);
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #ffffff;
+}
+
+.cs-card-footer-metric {
+  margin-top: 24px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #000000;
+  border: 1px solid var(--cs-divider);
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--cs-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cs-mono-label {
+  color: var(--cs-text-muted);
+}
+
+.cs-active-tag {
+  color: var(--cs-alarm-red);
+  font-weight: 700;
+}
+
+.cs-card-sub-hint {
+  margin-top: 20px;
+  font-size: 11.5px;
+  color: var(--cs-text-muted);
+  font-family: 'Fira Code', monospace;
+}
+
+.cs-tag-row {
+  margin-top: 24px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cs-spec-pill {
+  font-family: 'Fira Code', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: #000000;
+  border: 1px solid var(--cs-divider);
   color: var(--cs-text-secondary);
 }
 
 /* ==========================================================================
    WORKFLOW SECTION
    ========================================================================== */
-
 .cs-workflow-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .cs-step-card {
-  background: var(--cs-surface);
+  background: var(--cs-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--cs-divider);
-  border-radius: 24px;
-  padding: 30px;
+  border-radius: 16px;
+  padding: 26px;
   box-shadow: var(--cs-shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.15s ease;
+}
+
+.cs-step-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
 .cs-step-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .cs-step-num {
   font-family: 'Fira Code', monospace;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--cs-text-muted);
 }
 
 /* ==========================================================================
+   SOCRATIC AI SPOTLIGHT SECTION
+   ========================================================================== */
+.cs-socratic-demo-box {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-divider);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--cs-shadow);
+}
+
+.cs-demo-tab-bar {
+  height: 48px;
+  background: var(--cs-surface-elevated);
+  border-bottom: 1px solid var(--cs-divider);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-demo-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  divide-x: 1px solid var(--cs-divider);
+}
+
+.cs-demo-left {
+  padding: 24px;
+}
+
+.cs-exception-alert {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--cs-alarm-subtle);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: var(--cs-alarm-red);
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+}
+
+.cs-demo-right {
+  padding: 24px;
+  background: var(--cs-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cs-prompt-card {
+  background: #000000;
+  border: 1px solid var(--cs-divider);
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #fafafa;
+}
+
+/* ==========================================================================
    DOWNLOAD STATION (WINDOWS .EXE)
    ========================================================================== */
+.cs-download-status-banner {
+  margin-bottom: 24px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--cs-surface-elevated);
+  border: 1px solid var(--cs-divider);
+  color: var(--cs-text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  font-family: 'Fira Code', monospace;
+}
 
 .cs-download-grid {
   display: grid;
   grid-template-columns: 7fr 5fr;
-  gap: 28px;
+  gap: 24px;
   align-items: start;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .cs-main-installer-card {
-  background: var(--cs-surface);
-  border: 2px solid rgba(13, 68, 232, 0.4);
-  border-radius: 24px;
-  padding: 36px;
+  background: var(--cs-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  padding: 32px;
   box-shadow: var(--cs-shadow-high);
 }
 
@@ -903,21 +1006,21 @@
 
 .cs-btn-download-big {
   width: 100%;
-  height: 56px;
-  border-radius: 16px;
+  height: 52px;
+  border-radius: 12px;
   background: var(--cs-btn-primary-bg);
   color: var(--cs-btn-primary-fg);
-  font-size: 16px;
+  font-size: 14.5px;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   border: none;
   cursor: pointer;
-  box-shadow: var(--cs-highlight);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
   transition: all 0.15s ease;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .cs-btn-download-big:hover {
@@ -926,15 +1029,15 @@
 }
 
 .cs-hash-row {
-  background: var(--cs-surface-elevated);
+  background: #000000;
   border: 1px solid var(--cs-divider);
-  border-radius: 12px;
-  padding: 12px 16px;
+  border-radius: 8px;
+  padding: 10px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: 'Fira Code', monospace;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--cs-text-muted);
 }
 
@@ -945,10 +1048,12 @@
 }
 
 .cs-alt-download-card {
-  background: var(--cs-surface);
+  background: var(--cs-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--cs-divider);
-  border-radius: 20px;
-  padding: 20px 24px;
+  border-radius: 16px;
+  padding: 18px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -961,37 +1066,42 @@
 }
 
 .cs-specs-table {
-  background: var(--cs-surface);
+  background: var(--cs-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--cs-divider);
-  border-radius: 20px;
-  padding: 28px;
+  border-radius: 16px;
+  padding: 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 /* ==========================================================================
-   BOTTOM AMBIENT CTA SECTION
+   BOTTOM CTA SECTION
    ========================================================================== */
-
 .cs-bottom-cta {
   background: #09090b;
   position: relative;
-  padding: 120px 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 100px 24px;
+  border-top: 1px solid var(--cs-divider);
   overflow: hidden;
   text-align: center;
 }
 
-.cs-cosmic-glow {
+.cs-bottom-ambient-glow {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(13, 68, 232, 0.22) 0%, rgba(112, 4, 29, 0.14) 40%, rgba(9, 9, 11, 0.96) 75%);
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 350px;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .cs-bottom-cta-inner {
-  max-width: 800px;
+  max-width: 780px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -1001,36 +1111,63 @@
 }
 
 .cs-app-badge-center {
-  width: 72px;
-  height: 72px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, var(--cs-brand-blue), #4338ca);
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  background: var(--cs-surface-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  margin-bottom: 32px;
-  box-shadow: 0 12px 32px rgba(13, 68, 232, 0.4);
+  margin-bottom: 24px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.7);
+}
+
+.cs-cta-favicon-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
 }
 
 .cs-bottom-title {
-  font-size: 52px;
+  font-size: 46px;
   font-weight: 800;
-  letter-spacing: -1.5px;
-  line-height: 1.12;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+}
+
+.cs-bottom-desc {
+  font-size: 16px;
+  color: var(--cs-text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.cs-cta-buttons-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cs-bottom-meta {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--cs-text-muted);
 }
 
 /* ==========================================================================
-   CLEANSHOT FOOTER
+   FOOTER
    ========================================================================== */
-
 .cs-footer {
   background: #09090b;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 64px 24px 48px;
-  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid var(--cs-divider);
+  padding: 56px 24px 40px;
+  color: var(--cs-text-secondary);
 }
 
 .cs-footer-inner {
@@ -1043,55 +1180,80 @@
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--cs-divider);
+  margin-bottom: 40px;
+}
+
+.cs-footer-brand-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cs-divider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-footer-favicon-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 .cs-newsletter-form {
   display: flex;
-  gap: 10px;
-  width: 100%;
-  max-width: 440px;
+  align-items: center;
+  gap: 8px;
 }
 
 .cs-newsletter-input {
-  flex: 1;
-  height: 48px;
-  padding: 0 16px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: white;
-  font-size: 14px;
+  width: 280px;
+  height: 40px;
+  background: var(--cs-surface-elevated);
+  border: 1px solid var(--cs-divider);
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 13px;
+  color: var(--cs-text-main);
+  outline: none;
+}
+.cs-newsletter-input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .cs-newsletter-btn {
-  height: 48px;
-  padding: 0 20px;
-  border-radius: 12px;
-  background: white;
-  color: black;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: var(--cs-btn-primary-bg);
+  color: var(--cs-btn-primary-fg);
+  font-size: 13px;
   font-weight: 700;
-  font-size: 14px;
   border: none;
   cursor: pointer;
+  transition: all 0.12s ease;
+}
+.cs-newsletter-btn:hover {
+  background: var(--cs-btn-primary-hover);
 }
 
 .cs-footer-links-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 36px;
+  gap: 32px;
   margin-bottom: 48px;
 }
 
 .cs-footer-col h4 {
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--cs-text-main);
   margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: 'Fira Code', monospace;
 }
 
 .cs-footer-col ul {
@@ -1099,60 +1261,35 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 14px;
 }
 
 .cs-footer-col a {
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  color: var(--cs-text-muted);
   text-decoration: none;
-  transition: color 0.15s ease;
+  transition: color 0.12s ease;
 }
-
 .cs-footer-col a:hover {
-  color: white;
+  color: var(--cs-text-main);
 }
 
 .cs-footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  padding-top: 24px;
+  border-top: 1px solid var(--cs-divider);
+  font-size: 12px;
+  color: var(--cs-text-dim);
 }
 
-/* Responsive Media Queries */
+/* Responsive */
 @media (max-width: 1024px) {
+  .cs-hero-title {
+    font-size: 44px;
+  }
   .cs-showcase-grid {
     grid-template-columns: 1fr;
-  }
-  .cs-bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .cs-bento-span-2 {
-    grid-column: span 2;
-  }
-  .cs-workflow-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .cs-download-grid {
-    grid-template-columns: 1fr;
-  }
-  .cs-specs-table {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .cs-footer-links-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .cs-nav-links {
-    display: none;
-  }
-  .cs-hero-title {
-    font-size: 40px;
   }
   .cs-bento-grid {
     grid-template-columns: 1fr;
@@ -1161,16 +1298,22 @@
     grid-column: span 1;
   }
   .cs-workflow-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cs-download-grid {
     grid-template-columns: 1fr;
   }
   .cs-specs-table {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .cs-newsletter-row {
     flex-direction: column;
     align-items: flex-start;
   }
   .cs-footer-links-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cs-demo-grid {
     grid-template-columns: 1fr;
   }
 }

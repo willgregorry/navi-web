@@ -1,5 +1,4 @@
-import React from 'react';
-import { Lock, Cpu, Eye, Volume2, Zap, Sparkles } from 'lucide-react';
+import { Lock, Cpu, Eye, Volume2, Sparkles } from 'lucide-react';
 
 export const BentoGridSection: React.FC = () => {
   return (
@@ -7,62 +6,48 @@ export const BentoGridSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">Core Architecture</span>
+            <span className="cs-section-tag">ARCHITECTURAL BLUEPRINT</span>
             <h2 className="cs-section-title">
               Engineered with <br />
-              <span className="cs-gradient-text">Uncompromising Precision.</span>
+              <span className="cs-monochrome-title">Monochrome Brutalist Precision.</span>
             </h2>
           </div>
           <p className="cs-section-desc">
-            Every layer of Navi is built to eliminate proctor fatigue, neutralize unauthorized collaboration, and foster authentic student mastery.
+            Every layer of Navi is built to eliminate proctor fatigue, neutralize unauthorized collaboration, and foster authentic student mastery without distractions or AI slop.
           </p>
         </div>
 
-        {/* 4-Column CleanShot Bento Grid */}
+        {/* 4-Column Bento Grid matching navi-app design system */}
         <div className="cs-bento-grid">
           {/* Card 1 (Span 2): Native Win32 Low-Level Hook Engine */}
           <div className="cs-bento-card cs-bento-span-2">
             <div>
-              <div className="cs-bento-icon-box" style={{ color: '#ef4444' }}>
-                <Lock size={22} />
+              <div className="cs-bento-icon-box">
+                <Lock size={20} />
               </div>
               <h3 className="cs-bento-title">Native Win32 Low-Level Kiosk Lock-In</h3>
               <p className="cs-bento-desc">
                 Unlike web-based exam portals that only listen to HTML blur events, Navi hooks into the Windows OS kernel via <code>SetWindowsHookEx(WH_KEYBOARD_LL)</code>. Shortcut keystrokes including <kbd>Alt+Tab</kbd>, <kbd>Win+D</kbd>, <kbd>Ctrl+Esc</kbd>, and multi-monitor switching are physically intercepted before reaching any external app.
               </p>
             </div>
-            <div
-              style={{
-                marginTop: '24px',
-                padding: '12px 16px',
-                borderRadius: '12px',
-                background: 'var(--cs-canvas)',
-                border: '1px solid var(--cs-divider)',
-                fontFamily: 'Fira Code, monospace',
-                fontSize: '11.5px',
-                color: 'var(--cs-text-secondary)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              <span>Hook status: KBD_HOOK_SUCCESS</span>
-              <span style={{ color: 'var(--cs-alarm-red)' }}>● Zero-Bypass Active</span>
+            <div className="cs-card-footer-metric">
+              <span className="cs-mono-label">HOOK STATUS: KBD_HOOK_SUCCESS</span>
+              <span className="cs-active-tag">● ZERO-BYPASS ACTIVE</span>
             </div>
           </div>
 
           {/* Card 2: Dual Alert System */}
           <div className="cs-bento-card">
             <div>
-              <div className="cs-bento-icon-box" style={{ color: '#f59e0b' }}>
-                <Volume2 size={22} />
+              <div className="cs-bento-icon-box">
+                <Volume2 size={20} />
               </div>
-              <h3 className="cs-bento-title">Audio & Visual Siren Alert</h3>
+              <h3 className="cs-bento-title">Acoustic & Visual Alarm</h3>
               <p className="cs-bento-desc">
-                When an unauthorized window blur or hook tamper occurs, Navi plays an acoustic warning sound and flashes a high-visibility badge to alert nearby proctors instantly.
+                When an unauthorized window blur or hook tamper occurs, Navi plays a synthesized acoustic warning and flags a high-visibility badge to alert nearby proctors instantly.
               </p>
             </div>
-            <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--cs-text-muted)' }}>
+            <div className="cs-card-sub-hint">
               WebAudio API synthesized alerts · Zero external media dependencies
             </div>
           </div>
@@ -70,47 +55,47 @@ export const BentoGridSection: React.FC = () => {
           {/* Card 3: Socratic Hint Allowance Quota */}
           <div className="cs-bento-card">
             <div>
-              <div className="cs-bento-icon-box" style={{ color: '#38bdf8' }}>
-                <Sparkles size={22} />
+              <div className="cs-bento-icon-box">
+                <Sparkles size={20} />
               </div>
               <h3 className="cs-bento-title">Instructor-Controlled Quotas</h3>
               <p className="cs-bento-desc">
-                Instructors configure maximum hint allowances (e.g. 5 hints per exam). The AI tracks hint consumption and deducts points transparently.
+                Instructors configure maximum hint allowances (e.g. 5 hints per exam). The Socratic engine tracks consumption and logs usage to the live roster.
               </p>
             </div>
-            <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--cs-text-muted)' }}>
-              Configurable syntax and logic hint gating per room
+            <div className="cs-card-sub-hint">
+              Configurable syntax (AST) and logic Socratic hint gating per room
             </div>
           </div>
 
           {/* Card 4: Real-time Teacher Web Console */}
           <div className="cs-bento-card">
             <div>
-              <div className="cs-bento-icon-box" style={{ color: '#22c55e' }}>
-                <Eye size={22} />
+              <div className="cs-bento-icon-box">
+                <Eye size={20} />
               </div>
-              <h3 className="cs-bento-title">Live Teacher Dashboard</h3>
+              <h3 className="cs-bento-title">Live Telemetry Dashboard</h3>
               <p className="cs-bento-desc">
-                Proctors monitor all student test runs, current line execution, violation counts, and hint requests live with sub-second WebSocket updates.
+                Proctors monitor all student test runs, current line execution, violation counts, and hint requests live with sub-second polling from the server.
               </p>
             </div>
-            <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--cs-text-muted)' }}>
-              Integrated Room PIN system: <code>NAVI-XXXX</code>
+            <div className="cs-card-sub-hint">
+              Integrated Room PIN system: <code>NAVI-MID1</code>
             </div>
           </div>
 
           {/* Card 5: Offline First Execution Engine */}
           <div className="cs-bento-card">
             <div>
-              <div className="cs-bento-icon-box" style={{ color: '#a855f7' }}>
-                <Cpu size={22} />
+              <div className="cs-bento-icon-box">
+                <Cpu size={20} />
               </div>
               <h3 className="cs-bento-title">Local Python 3.11 Sandboxing</h3>
               <p className="cs-bento-desc">
                 Code execution runs locally in an isolated sub-process with memory clamps and timeout triggers. Exams proceed seamlessly even if university internet drops.
               </p>
             </div>
-            <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--cs-text-muted)' }}>
+            <div className="cs-card-sub-hint">
               Isolated process execution · Sub-millisecond benchmarking
             </div>
           </div>
@@ -118,25 +103,19 @@ export const BentoGridSection: React.FC = () => {
           {/* Card 6 (Span 2): Zero-Slop Monochrome Brutalist UI */}
           <div className="cs-bento-card cs-bento-span-2">
             <div>
-              <div className="cs-bento-icon-box" style={{ color: '#ffffff' }}>
-                <Zap size={22} />
+              <div className="cs-bento-icon-box brand-accent">
+                <img src="/navi-favicon.png" alt="Navi" className="cs-card-favicon" />
               </div>
-              <h3 className="cs-bento-title">Monochrome Brutalist Precision</h3>
+              <h3 className="cs-bento-title">Zero-Slop Obsidian Interface</h3>
               <p className="cs-bento-desc">
-                No distracting animations, no low-contrast text, no AI slop. Built on an obsidian black canvas (<code>#09090b</code>) with high-legibility typography (Plus Jakarta Sans and Fira Code), offering optimal visual focus during high-stress exams.
+                No distracting neon gradients, no low-contrast text, no AI slop. Built on an obsidian black canvas (<code>#09090b</code>) with high-legibility typography (Plus Jakarta Sans and Fira Code), offering optimal visual focus during high-stress exams.
               </p>
             </div>
-            <div
-              style={{
-                marginTop: '24px',
-                display: 'flex',
-                gap: '8px',
-                flexWrap: 'wrap',
-              }}
-            >
-              <span className="cs-version-pill">Accessible WCAG AAA</span>
-              <span className="cs-version-pill">Keyboard-First Shortcuts</span>
-              <span className="cs-version-pill">Instant Dark/Light Shift</span>
+            <div className="cs-tag-row">
+              <span className="cs-spec-pill">Accessible WCAG AAA</span>
+              <span className="cs-spec-pill">Keyboard-First Shortcuts</span>
+              <span className="cs-spec-pill">Fast Offline Mode</span>
+              <span className="cs-spec-pill">Zero Data Mining</span>
             </div>
           </div>
         </div>

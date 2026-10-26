@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Sun, Moon, LayoutDashboard, Download } from 'lucide-react';
+import { Sun, Moon, LayoutDashboard, Download } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
 
 interface LandingNavbarProps {
@@ -19,41 +19,62 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenDashboard })
   return (
     <header className="cs-header">
       <div className="cs-header-inner">
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <a href="#" className="cs-brand-link" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+          <a
+            href="#"
+            className="cs-brand-link"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
             <div className="cs-brand-icon">
-              <Shield size={20} strokeWidth={2.5} />
+              <img src="/navi-favicon.png" alt="Navi" className="cs-brand-favicon-img" />
             </div>
-            <span className="cs-brand-title">Navi</span>
-            <span className="cs-version-pill">v1.0.4-rc</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="cs-brand-title">Navi</span>
+              <span className="cs-version-pill">v1.0.4-rc</span>
+            </div>
           </a>
 
           <nav className="cs-nav-links">
             <a
               href="#features"
               className="cs-nav-link"
-              onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('features');
+              }}
             >
               Features
             </a>
             <a
               href="#socratic"
               className="cs-nav-link"
-              onClick={(e) => { e.preventDefault(); scrollToSection('socratic'); }}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('socratic');
+              }}
             >
               Socratic AI
             </a>
             <a
               href="#workflow"
               className="cs-nav-link"
-              onClick={(e) => { e.preventDefault(); scrollToSection('workflow'); }}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('workflow');
+              }}
             >
               Workflow
             </a>
             <a
               href="#download"
               className="cs-nav-link"
-              onClick={(e) => { e.preventDefault(); scrollToSection('download'); }}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('download');
+              }}
             >
               Download
             </a>
@@ -68,16 +89,16 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenDashboard })
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
-            {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
           <button
             type="button"
             className="cs-teacher-btn"
             onClick={onOpenDashboard}
-            title="Buka Dasbor Pengawas Ujian"
+            title="Open Teacher Console"
           >
-            <LayoutDashboard size={15} />
+            <LayoutDashboard size={14} />
             <span>Teacher Console</span>
           </button>
 
@@ -87,7 +108,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenDashboard })
             onClick={() => scrollToSection('download')}
           >
             <Download size={14} />
-            <span>Get Navi for Windows</span>
+            <span>Download for Windows</span>
           </button>
         </div>
       </div>

@@ -24,10 +24,10 @@ const DEMO_CASES: ErrorDemoCase[] = [
         prefix[i] = prefix[i-1] + arr[i]
     return prefix`,
     errorSnippet: 'IndexError: list index out of range on line 5: arr[i]',
-    socraticQuestion: 'Bagaimana cara memperbaiki IndexError ini tanpa mengulang perulangan?',
+    socraticQuestion: 'How can I fix this IndexError without rewriting the whole loop?',
     socraticHint:
-      'Perhatikan panjang list `arr` adalah `n`. Jika indeks list berbasis 0, berapakah indeks maksimum yang valid untuk `arr`? Bandingkan dengan nilai akhir dari `range(1, n + 2)`.',
-    takeaway: 'Membimbing pemahaman batas indeks (bounds safety) tanpa menuliskan ulang loop for.',
+      'Consider that the length of list `arr` is `n`. For a 0-indexed list, what is the maximum valid accessible index? Compare that with the termination limit produced by `range(1, n + 2)`.',
+    takeaway: 'Guides index bounds safety without writing the loop for the student.',
   },
   {
     id: 'recursion',
@@ -39,10 +39,10 @@ const DEMO_CASES: ErrorDemoCase[] = [
         return 1
     return fibonacci(n - 1) + fibonacci(n - 2)`,
     errorSnippet: 'RecursionError: maximum recursion depth exceeded while calling a Python object',
-    socraticQuestion: 'Kenapa fungsi fibonacci saya hang / crash saat dicoba dengan n=0?',
+    socraticQuestion: 'Why does my fibonacci function crash or hang when evaluated at n=0?',
     socraticHint:
-      'Pikirkan tentang Base Case (kondisi berhenti) rekursi. Apa yang terjadi jika nilai `n` yang dimasukkan adalah `0` atau angka negatif? Kapan fungsinya akan berhenti memanggil dirinya sendiri?',
-    takeaway: 'Menumbuhkan insting identifikasi basis rekursi secara mandiri.',
+      'Reflect on the base cases (halting conditions) of your recursive definition. What happens when the input argument `n` is `0` or negative? Under what condition does the function terminate?',
+    takeaway: 'Develops student instinct for identifying recursive termination conditions.',
   },
   {
     id: 'type-coercion',
@@ -51,12 +51,12 @@ const DEMO_CASES: ErrorDemoCase[] = [
     codeSnippet: `def calculate_average(scores_input):
     total = sum(scores_input)
     count = len(scores_input)
-    return "Nilai rata-rata: " + (total / count)`,
+    return "Average score: " + (total / count)`,
     errorSnippet: 'TypeError: can only concatenate str (not "float") to str',
-    socraticQuestion: 'Bagaimana cara menampilkan hasil perhitungan bersama teks?',
+    socraticQuestion: 'How can I format numeric calculation results alongside descriptive text?',
     socraticHint:
-      'Python adalah bahasa yang strongly-typed. Operasi `+` antara teks (`str`) dan angka (`float`) tidak otomatis mengkonversi tipe data. Bagaimana cara kamu mengubah ekspresi numerik tersebut menjadi teks sebelum digabungkan?',
-    takeaway: 'Memperkuat konsep Strong vs Weak Typing pada runtime Python.',
+      'Python is a strongly typed language. The `+` operator between strings and floats does not implicitly coerce types. How might you convert the numerical expression into string format or use f-string interpolation?',
+    takeaway: 'Reinforces strong type system mechanics on Python 3 runtime.',
   },
 ];
 
@@ -70,10 +70,10 @@ export const SocraticFeatureSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">Proprietary AI Architecture</span>
+            <span className="cs-section-tag">PROPRIETARY PEDAGOGICAL AI</span>
             <h2 className="cs-section-title">
               Socratic Guidance. <br />
-              <span className="cs-gradient-text">Never Spoon-Feeding.</span>
+              <span className="cs-monochrome-title">Never Spoon-Feeding.</span>
             </h2>
           </div>
           <p className="cs-section-desc">
@@ -100,7 +100,7 @@ export const SocraticFeatureSection: React.FC = () => {
             {/* Left Column: Student Code & Runtime Error */}
             <div className="cs-demo-left">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
+                <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace', letterSpacing: '0.05em' }}>
                   STUDENT CODE SUBMISSION
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--cs-text-dim)', fontFamily: 'Fira Code, monospace' }}>
@@ -116,7 +116,7 @@ export const SocraticFeatureSection: React.FC = () => {
 
               <div className="cs-exception-alert">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', fontWeight: 700 }}>
-                  <AlertTriangle size={15} />
+                  <AlertTriangle size={14} />
                   <span>RUNTIME EXCEPTION CAPTURED</span>
                 </div>
                 <div>{activeCase.errorSnippet}</div>
@@ -126,14 +126,15 @@ export const SocraticFeatureSection: React.FC = () => {
             {/* Right Column: Socratic AI Guidance */}
             <div className="cs-demo-right">
               <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
                   <div
                     style={{
-                      width: '28px',
-                      height: '28px',
+                      width: '32px',
+                      height: '32px',
                       borderRadius: '8px',
-                      background: 'rgba(13, 68, 232, 0.2)',
-                      color: 'var(--cs-brand-blue)',
+                      background: 'rgba(255, 255, 255, 0.06)',
+                      border: '1px solid var(--cs-divider)',
+                      color: 'var(--cs-text-main)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -151,13 +152,13 @@ export const SocraticFeatureSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div style={{ fontSize: '12px', color: 'var(--cs-text-secondary)', marginBottom: '8px' }}>
-                  <strong>Student asks:</strong> "{activeCase.socraticQuestion}"
+                <div style={{ fontSize: '12.5px', color: 'var(--cs-text-secondary)', marginBottom: '10px' }}>
+                  <strong style={{ color: 'var(--cs-text-main)' }}>Student asks:</strong> "{activeCase.socraticQuestion}"
                 </div>
 
                 <div className="cs-prompt-card">
                   <div style={{ display: 'flex', gap: '10px' }}>
-                    <HelpCircle size={18} style={{ color: 'var(--cs-brand-blue)', flexShrink: 0, marginTop: '2px' }} />
+                    <HelpCircle size={16} style={{ color: 'var(--cs-text-main)', flexShrink: 0, marginTop: '2px' }} />
                     <div>
                       <p style={{ margin: 0 }}>{activeCase.socraticHint}</p>
                     </div>
@@ -179,7 +180,7 @@ export const SocraticFeatureSection: React.FC = () => {
                 }}
               >
                 <CheckCircle2 size={16} style={{ color: 'var(--cs-success-green)', flexShrink: 0 }} />
-                <span><strong>Pedagogical Outcome:</strong> {activeCase.takeaway}</span>
+                <span><strong style={{ color: 'var(--cs-text-main)' }}>Pedagogical Outcome:</strong> {activeCase.takeaway}</span>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, ChevronRight, Lock, Cpu, Sparkles, ChevronLeft } from 'lucide-react';
+import { Download, ChevronRight, Lock, Cpu, ChevronLeft } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenDashboard: () => void;
@@ -23,7 +23,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      '“The native Win32 kiosk engine is rock-solid. Students cannot bypass it with Alt+Tab or WinKey. Truly the CleanShot standard of exam software.”',
+      '“The native Win32 kiosk engine is rock-solid. Students cannot bypass it with Alt+Tab or WinKey. Truly the highest engineering standard of proctoring software.”',
     author: 'Bambang Pratama, S.T.',
     role: 'System Administrator, National Competitive Coding Olympiad',
     initials: 'BP',
@@ -52,10 +52,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
         {/* Announcement Badge */}
         <div className="cs-badge-wrapper">
           <a href="#download" className="cs-announcement-badge">
-            <span className="cs-badge-icon">
-              <Sparkles size={12} />
+            <span className="cs-badge-favicon-box">
+              <img src="/navi-favicon.png" alt="Navi" className="cs-badge-favicon-img" />
             </span>
-            <span>Navi 1.0.4 is here — Native Win32 Kiosk & Socratic AI Engine</span>
+            <span>Navi 1.0.4 is live — Native Win32 Kiosk & Socratic AI Engine</span>
             <ChevronRight size={14} />
           </a>
         </div>
@@ -64,7 +64,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
         <div className="cs-hero-title-box">
           <h1 className="cs-hero-title">
             The Pro Exam Environment for <br />
-            <span className="cs-gradient-text">Competitive Programming</span>
+            <span className="cs-monochrome-title">Competitive Programming</span>
           </h1>
           <p className="cs-hero-desc">
             Navi combines a high-security locked-down kiosk client with a pedagogical Socratic AI assistant. Students get real-time conceptual guidance while instructors maintain complete academic integrity.
@@ -88,7 +88,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
           <span>Free for universities and schools · Native 64-bit Win32 · Zero telemetry leakage</span>
         </div>
 
-        {/* Dual Showcase Grid: Mockup + Testimonial (CleanShot Style) */}
+        {/* Dual Showcase Grid: Mockup + Testimonial */}
         <div className="cs-showcase-grid">
           {/* Mockup Frame */}
           <div className="cs-mockup-frame">
@@ -98,13 +98,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
                 <span className="cs-dot cs-dot-yellow" />
                 <span className="cs-dot cs-dot-green" />
               </div>
+
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span className="cs-kiosk-pill">
                   <Lock size={10} />
                   KIOSK ACTIVE · ALT+TAB DISABLED
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
-                  NAVI-8392
+                  NAVI-MID1
                 </span>
               </div>
               <div style={{ width: '48px' }} />
@@ -163,29 +164,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
 
                 {activeTab === 'socratic' && (
                   <pre style={{ margin: 0 }}>
-                    <code style={{ color: '#38bdf8' }}>{`[NAVI SOCRATIC REASONER v1.0.4]
-Question from student: "Kenapa test case nomor 4 Time Limit Exceeded (TLE)?"
+                    <code style={{ color: '#fafafa' }}>{`[NAVI SOCRATIC REASONER v1.0.4]
+Question from student: "Why did test case #4 hit Time Limit Exceeded (TLE)?"
 
 Analysis:
 - Complexity detected: O(n) linear primality check
 - Target constraint: n <= 10^9
 
 Socratic Guidance (Pedagogical - No direct answer):
-"Perhatikan faktor pembagi dari sebuah bilangan n.
-Jika suatu bilangan n dapat dibagi oleh faktor p, apakah pasangan
-faktornya q = n / p bisa bernilai lebih besar dari akar(n)?
-Coba pikirkan batas maksimal i yang perlu kamu periksa dalam loop!"`}</code>
+"Consider the divisors of a composite number n.
+If a number n can be divided by factor p, could its complementary
+factor q = n / p ever be strictly greater than sqrt(n)?
+Reflect on the maximum upper bound for variable i in your loop!"`}</code>
                   </pre>
                 )}
 
                 {activeTab === 'telemetry' && (
                   <pre style={{ margin: 0 }}>
-                    <code style={{ color: '#a1a1aa' }}>{`[10:02:15] Session initialized: Willy Gregory (NIM: 215150200111001)
+                    <code style={{ color: '#a1a1aa' }}>{`[10:02:15] Session initialized: Willy Gregory (NIM: 245150207111089)
 [10:02:15] Win32 SetWindowsHookEx(WH_KEYBOARD_LL) attached: SUCCESS
 [10:02:15] Alt+Tab, WinKey, TaskMgr disabled: ACTIVE
-[10:05:32] Run Tests executed: 3/4 passed (Memory: 14.2MB)
+[10:05:32] Run Tests executed: 4/4 passed (Memory: 14.2MB)
 [10:06:10] Hint request dispatched: "Algorithmic step efficiency" (Hint 2/5)
-[10:06:12] Heartbeat synchronized with Teacher Console (Room: NAVI-8392)`}</code>
+[10:06:12] Telemetry synchronized with Teacher Console (Room: NAVI-MID1)`}</code>
                   </pre>
                 )}
               </div>
@@ -202,7 +203,7 @@ Coba pikirkan batas maksimal i yang perlu kamu periksa dalam loop!"`}</code>
             </div>
           </div>
 
-          {/* Testimonial Hero (CleanShot Style) */}
+          {/* Testimonial Hero */}
           <div className="cs-testimonial-hero">
             <div>
               <div className="cs-testimonial-stars">★★★★★</div>

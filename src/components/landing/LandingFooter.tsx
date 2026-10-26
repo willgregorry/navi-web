@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Shield, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 interface LandingFooterProps {
   onOpenDashboard: () => void;
@@ -26,13 +26,13 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({ onOpenDashboard })
         {/* Newsletter Row */}
         <div className="cs-newsletter-row">
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <div className="cs-brand-icon" style={{ width: '28px', height: '28px', borderRadius: '8px' }}>
-                <Shield size={16} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
+              <div className="cs-footer-brand-box">
+                <img src="/navi-favicon.png" alt="Navi" className="cs-footer-favicon-img" />
               </div>
-              <span style={{ fontSize: '18px', fontWeight: 800, color: '#ffffff' }}>Navi Dispatch</span>
+              <span style={{ fontSize: '18px', fontWeight: 800, color: '#fafafa' }}>Navi Dispatch</span>
             </div>
-            <p style={{ margin: 0, fontSize: '14px', color: 'rgba(255, 255, 255, 0.6)' }}>
+            <p style={{ margin: 0, fontSize: '13.5px', color: 'var(--cs-text-secondary)', maxWidth: '540px' }}>
               Get notified of new security patch releases, Python sandbox updates, and algorithmic challenge packs.
             </p>
           </div>
@@ -48,8 +48,8 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({ onOpenDashboard })
             />
             <button type="submit" className="cs-newsletter-btn">
               {subscribed ? (
-                <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <Check size={16} /> Subscribed
+                <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <Check size={15} /> Subscribed
                 </span>
               ) : (
                 'Subscribe'
@@ -58,7 +58,7 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({ onOpenDashboard })
           </form>
         </div>
 
-        {/* Links Grid (CleanShot X style) */}
+        {/* Links Grid */}
         <div className="cs-footer-links-grid">
           <div className="cs-footer-col">
             <h4>Product</h4>
@@ -93,12 +93,12 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({ onOpenDashboard })
           </div>
 
           <div className="cs-footer-col">
-            <h4>Consortium & Legal</h4>
+            <h4>Institution & Source</h4>
             <ul>
+              <li><a href="https://github.com/willgregorry/navi-web" target="_blank" rel="noreferrer">GitHub Repository</a></li>
               <li><a href="#">Privacy & Telemetry Policy</a></li>
               <li><a href="#">Terms of Academic Use</a></li>
-              <li><a href="#">Fakultas Ilmu Komputer UB</a></li>
-              <li><a href="#">GitHub Repository</a></li>
+              <li><a href="#">Universitas Brawijaya</a></li>
             </ul>
           </div>
         </div>
@@ -110,10 +110,10 @@ export const LandingFooter: React.FC<LandingFooterProps> = ({ onOpenDashboard })
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--cs-success-green)' }} />
-              All Systems Operational
+              <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: 'var(--cs-success-green)' }} />
+              Telemetry Online
             </span>
-            <span>v1.0.4-rc</span>
+            <span style={{ fontFamily: 'Fira Code, monospace', fontSize: '11px' }}>v1.0.4-rc</span>
           </div>
         </div>
       </div>
