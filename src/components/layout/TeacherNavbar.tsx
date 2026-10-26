@@ -1,5 +1,4 @@
-import React from 'react';
-import { BookOpen, ShieldAlert, PlusCircle } from 'lucide-react';
+import { ShieldAlert, PlusCircle } from 'lucide-react';
 
 interface TeacherNavbarProps {
   onNewExam: () => void;
@@ -16,7 +15,7 @@ export const TeacherNavbar: React.FC<TeacherNavbarProps> = ({
     <nav className="teacher-navbar">
       <div className="nav-brand">
         <div className="brand-icon">
-          <BookOpen size={20} />
+          <img src="/navi-favicon.png" alt="Navi" className="nav-logo-img" />
         </div>
         <div>
           <span className="brand-name">Navi Educator</span>

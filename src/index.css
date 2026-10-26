@@ -60,11 +60,19 @@ body {
 }
 
 .brand-icon {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-  color: white;
-  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 6px;
   border-radius: 8px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
 .brand-name {
