@@ -35,40 +35,6 @@
   --cs-alarm-red: #ef4444;
   --cs-alarm-subtle: rgba(239, 68, 68, 0.12);
   --cs-success-green: #22c55e;
-  --cs-success-subtle: rgba(34, 197, 94, 0.12);
-}
-
-[data-theme="light"] {
-  --cs-canvas: #f4f4f5;
-  --cs-surface: #ffffff;
-  --cs-surface-elevated: #f4f4f6;
-  --cs-card: #ececf0;
-  --cs-card-subtle: #f8f8fa;
-  --cs-code: #f1f1f4;
-
-  --cs-text-main: #09090b;
-  --cs-text-secondary: #52525b;
-  --cs-text-muted: #71717a;
-  --cs-text-dim: #a1a1aa;
-
-  --cs-btn-primary-bg: #09090b;
-  --cs-btn-primary-fg: #ffffff;
-  --cs-btn-primary-hover: #27272a;
-
-  --cs-btn-secondary-bg: #e4e4e7;
-  --cs-btn-secondary-fg: #09090b;
-  --cs-btn-secondary-hover: #d4d4d8;
-
-  --cs-divider: rgba(0, 0, 0, 0.08);
-  --cs-border-subtle: #e4e4e7;
-  --cs-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  --cs-shadow: 0 6px 20px -3px rgba(0, 0, 0, 0.07);
-  --cs-shadow-high: 0 16px 36px -6px rgba(0, 0, 0, 0.12);
-
-  --cs-alarm-red: #dc2626;
-  --cs-alarm-subtle: rgba(220, 38, 38, 0.1);
-  --cs-success-green: #16a34a;
-  --cs-success-subtle: rgba(22, 163, 74, 0.1);
 }
 
 /* Landing Page Wrapper */
@@ -180,24 +146,6 @@
   gap: 10px;
 }
 
-.cs-theme-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: transparent;
-  border: 1px solid var(--cs-divider);
-  color: var(--cs-text-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.12s ease;
-}
-
-.cs-theme-btn:hover {
-  background: var(--cs-surface-elevated);
-  color: var(--cs-text-main);
-}
 
 .cs-teacher-btn {
   display: inline-flex;

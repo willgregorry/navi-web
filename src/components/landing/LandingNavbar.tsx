@@ -1,14 +1,11 @@
 import React from 'react';
-import { Sun, Moon, LayoutDashboard, Download } from 'lucide-react';
-import { useTheme } from '../../hooks/useTheme';
+import { LayoutDashboard, Download } from 'lucide-react';
 
 interface LandingNavbarProps {
   onOpenDashboard: () => void;
 }
 
 export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenDashboard }) => {
-  const { theme, toggleTheme } = useTheme();
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -82,16 +79,6 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenDashboard })
         </div>
 
         <div className="cs-header-actions">
-          <button
-            type="button"
-            className="cs-theme-btn"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
-            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-
           <button
             type="button"
             className="cs-teacher-btn"
