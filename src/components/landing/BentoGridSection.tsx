@@ -6,7 +6,6 @@ export const BentoGridSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">ARCHITECTURAL BLUEPRINT</span>
             <h2 className="cs-section-title">
               Engineered with <br />
               <span className="cs-monochrome-title">Monochrome Brutalist Precision.</span>
@@ -32,7 +31,7 @@ export const BentoGridSection: React.FC = () => {
             </div>
             <div className="cs-card-footer-metric">
               <span className="cs-mono-label">HOOK STATUS: KBD_HOOK_SUCCESS</span>
-              <span className="cs-active-tag">● ZERO-BYPASS ACTIVE</span>
+              <span className="cs-mono-label" style={{ color: 'var(--cs-text-main)' }}>● ZERO-BYPASS ACTIVE</span>
             </div>
           </div>
 

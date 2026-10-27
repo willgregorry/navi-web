@@ -38,7 +38,6 @@ export const WorkflowSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">EXAMINATION LIFECYCLE</span>
             <h2 className="cs-section-title">
               From Room Setup to Final Grade <br />
               <span className="cs-monochrome-title">in Four Frictionless Steps.</span>
@@ -68,7 +67,7 @@ export const WorkflowSection: React.FC = () => {
               </div>
 
               <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid var(--cs-divider)' }}>
-                <span className="cs-version-pill">{step.tag}</span>
+                <span className="cs-mono-label" style={{ color: 'var(--cs-text-secondary)' }}>// {step.tag}</span>
               </div>
             </div>
           ))}

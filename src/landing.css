@@ -362,13 +362,11 @@
 }
 
 .cs-mockup-frame {
-  background: var(--cs-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--cs-surface);
   border: 1px solid var(--cs-divider);
-  border-radius: 18px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--cs-shadow-high);
+  box-shadow: var(--cs-highlight), var(--cs-shadow-high);
   display: flex;
   flex-direction: column;
 }
@@ -398,18 +396,19 @@
 .cs-dot-yellow { background: #f59e0b; }
 .cs-dot-green { background: #22c55e; }
 
-.cs-kiosk-pill {
+.cs-kiosk-status {
   font-family: 'Fira Code', monospace;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 700;
-  color: var(--cs-alarm-red);
-  background: var(--cs-alarm-subtle);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  padding: 2px 8px;
-  border-radius: 4px;
+  color: var(--cs-text-main);
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-divider);
+  padding: 3px 8px;
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  letter-spacing: 0.04em;
 }
 
 .cs-mockup-body {
@@ -479,13 +478,11 @@
 
 /* Testimonial Hero Card */
 .cs-testimonial-hero {
-  background: var(--cs-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--cs-surface);
   border: 1px solid var(--cs-divider);
-  border-radius: 18px;
+  border-radius: 12px;
   padding: 32px;
-  box-shadow: var(--cs-shadow-high);
+  box-shadow: var(--cs-highlight), var(--cs-shadow-high);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -683,7 +680,7 @@
 }
 
 /* ==========================================================================
-   BENTO GRID (NO AI SLOP - PURE MONOCHROME EDITORIAL BRUTALISM)
+   BENTO GRID (NAVI-APP BRUTALIST MONOCHROME DESIGN SYSTEM - ZERO SLOP)
    ========================================================================== */
 .cs-bento-grid {
   display: grid;
@@ -692,13 +689,11 @@
 }
 
 .cs-bento-card {
-  background: var(--cs-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--cs-surface);
   border: 1px solid var(--cs-divider);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 28px;
-  box-shadow: var(--cs-shadow);
+  box-shadow: var(--cs-highlight), var(--cs-shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -706,8 +701,9 @@
 }
 
 .cs-bento-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
+  box-shadow: var(--cs-highlight), var(--cs-shadow-high);
 }
 
 .cs-bento-span-2 {
@@ -715,9 +711,9 @@
 }
 
 .cs-bento-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
   background: var(--cs-surface-elevated);
   border: 1px solid var(--cs-divider);
   display: flex;
@@ -817,13 +813,11 @@
 }
 
 .cs-step-card {
-  background: var(--cs-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--cs-surface);
   border: 1px solid var(--cs-divider);
-  border-radius: 16px;
-  padding: 26px;
-  box-shadow: var(--cs-shadow);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--cs-highlight), var(--cs-shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -831,8 +825,9 @@
 }
 
 .cs-step-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
+  box-shadow: var(--cs-highlight), var(--cs-shadow-high);
 }
 
 .cs-step-header {
@@ -855,9 +850,9 @@
 .cs-socratic-demo-box {
   background: var(--cs-surface);
   border: 1px solid var(--cs-divider);
-  border-radius: 18px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--cs-shadow);
+  box-shadow: var(--cs-highlight), var(--cs-shadow);
 }
 
 .cs-demo-tab-bar {
@@ -893,7 +888,7 @@
 
 .cs-demo-right {
   padding: 24px;
-  background: var(--cs-card);
+  background: var(--cs-surface-elevated);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -936,13 +931,11 @@
 }
 
 .cs-main-installer-card {
-  background: var(--cs-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 18px;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-divider);
+  border-radius: 12px;
   padding: 32px;
-  box-shadow: var(--cs-shadow-high);
+  box-shadow: var(--cs-highlight), var(--cs-shadow-high);
 }
 
 .cs-installer-header {
@@ -955,7 +948,7 @@
 .cs-btn-download-big {
   width: 100%;
   height: 52px;
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--cs-btn-primary-bg);
   color: var(--cs-btn-primary-fg);
   font-size: 14.5px;
@@ -996,33 +989,32 @@
 }
 
 .cs-alt-download-card {
-  background: var(--cs-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--cs-surface);
   border: 1px solid var(--cs-divider);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 18px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: var(--cs-shadow);
+  box-shadow: var(--cs-highlight), var(--cs-shadow);
   transition: all 0.15s ease;
 }
 
 .cs-alt-download-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+  box-shadow: var(--cs-highlight), var(--cs-shadow-high);
 }
 
 .cs-specs-table {
-  background: var(--cs-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--cs-surface);
   border: 1px solid var(--cs-divider);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 24px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  box-shadow: var(--cs-highlight), var(--cs-shadow);
 }
 
 /* ==========================================================================
@@ -1231,37 +1223,320 @@
   color: var(--cs-text-dim);
 }
 
-/* Responsive */
+/* Mobile Header Menu Styles */
+.cs-mobile-toggle-btn {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--cs-surface-elevated);
+  border: 1px solid var(--cs-divider);
+  color: var(--cs-text-main);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.12s ease;
+}
+.cs-mobile-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cs-mobile-menu {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: rgba(18, 18, 21, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--cs-divider);
+  padding: 16px 20px 24px;
+  box-shadow: var(--cs-shadow-high);
+  display: flex;
+  flex-direction: column;
+  animation: csFadeInDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 99;
+}
+
+@keyframes csFadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cs-mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.cs-mobile-nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cs-text-main);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.12s ease;
+}
+.cs-mobile-nav-link:hover {
+  background: var(--cs-surface-elevated);
+}
+
+.cs-mobile-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--cs-divider);
+}
+
+/* ==========================================================================
+   RESPONSIVE ARCHITECTURE (MOBILE / TABLET / DESKTOP)
+   ========================================================================== */
 @media (max-width: 1024px) {
   .cs-hero-title {
     font-size: 44px;
   }
   .cs-showcase-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .cs-bento-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .cs-bento-span-2 {
-    grid-column: span 1;
+    grid-column: span 2;
   }
   .cs-workflow-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .cs-download-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   .cs-specs-table {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .cs-newsletter-row {
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
+  }
+  .cs-footer-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cs-demo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .cs-header {
+    height: 58px;
+  }
+  .cs-header-inner {
+    padding: 0 16px;
+  }
+  .cs-nav-links {
+    display: none;
+  }
+  .cs-header-actions .cs-teacher-btn,
+  .cs-header-actions .cs-btn-download-nav {
+    display: none;
+  }
+  .cs-mobile-toggle-btn {
+    display: flex;
+  }
+  .cs-section {
+    padding: 56px 0;
+  }
+  .cs-section-inner {
+    padding: 0 16px;
+  }
+  .cs-section-header {
+    margin-bottom: 32px;
+  }
+  .cs-section-title {
+    font-size: 26px;
+    letter-spacing: -0.02em;
+  }
+  .cs-section-desc {
+    font-size: 14px;
+  }
+  .cs-hero {
+    padding: 88px 0 52px 0;
+  }
+  .cs-hero-container {
+    padding: 0 16px;
+  }
+  .cs-hero-title {
+    font-size: 32px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .cs-hero-desc {
+    font-size: 14.5px;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+  .cs-hero-cta-group {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .cs-hero-btn-primary,
+  .cs-hero-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    height: 48px;
+    font-size: 14px;
+  }
+  .cs-hero-guarantee {
+    font-size: 11.5px;
+    margin-bottom: 36px;
+  }
+  .cs-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .cs-bento-span-2 {
+    grid-column: span 1;
+  }
+  .cs-bento-card {
+    padding: 20px;
+  }
+  .cs-workflow-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .cs-step-card {
+    padding: 20px;
+  }
+  .cs-demo-tab-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cs-demo-tab-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .cs-demo-left,
+  .cs-demo-right {
+    padding: 16px;
+  }
+  .cs-mockup-tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cs-mockup-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .cs-mockup-codebox {
+    padding: 14px;
+  }
+  .cs-mockup-codebox pre {
+    font-size: 11.5px;
+  }
+  .cs-testimonial-hero {
+    padding: 20px;
+  }
+  .cs-testimonial-quote {
+    font-size: 14.5px;
+  }
+  .cs-main-installer-card {
+    padding: 20px;
+  }
+  .cs-installer-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .cs-hash-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .cs-alt-download-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px;
+  }
+  .cs-alt-download-card .cs-tab-btn {
+    width: 100%;
+    justify-content: center;
+    border: 1px solid var(--cs-divider);
+    border-radius: 6px;
+    height: 38px;
+  }
+  .cs-specs-table {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 16px;
+  }
+  .cs-bottom-cta {
+    padding: 56px 16px;
+  }
+  .cs-bottom-title {
+    font-size: 24px;
+  }
+  .cs-bottom-desc {
+    font-size: 14px;
+  }
+  .cs-cta-buttons-row {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .cs-cta-buttons-row .cs-hero-btn-primary,
+  .cs-cta-buttons-row .cs-hero-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .cs-newsletter-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .cs-newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cs-newsletter-input {
+    width: 100%;
+  }
+  .cs-newsletter-btn {
+    width: 100%;
   }
   .cs-footer-links-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
-  .cs-demo-grid {
+  .cs-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-hero-title {
+    font-size: 25px;
+  }
+  .cs-section-title {
+    font-size: 22px;
+  }
+  .cs-footer-links-grid {
     grid-template-columns: 1fr;
   }
 }

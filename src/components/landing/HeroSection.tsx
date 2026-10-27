@@ -49,17 +49,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
       <div className="cs-ambient-glow" />
 
       <div className="cs-hero-container">
-        {/* Announcement Badge */}
-        <div className="cs-badge-wrapper">
-          <a href="#download" className="cs-announcement-badge">
-            <span className="cs-badge-favicon-box">
-              <img src="/navi-favicon.png" alt="Navi" className="cs-badge-favicon-img" />
-            </span>
-            <span>Navi 1.0.4 is live — Native Win32 Kiosk & Socratic AI Engine</span>
-            <ChevronRight size={14} />
-          </a>
-        </div>
-
         {/* Title & Desc */}
         <div className="cs-hero-title-box">
           <h1 className="cs-hero-title">
@@ -100,12 +89,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDashboard, onDow
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span className="cs-kiosk-pill">
+                <span className="cs-kiosk-status">
                   <Lock size={10} />
-                  KIOSK ACTIVE · ALT+TAB DISABLED
+                  KIOSK ENFORCED · ALT+TAB LOCKED
                 </span>
                 <span style={{ fontSize: '11px', color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
-                  NAVI-SU5Y
+                  NAVI-MID1
                 </span>
               </div>
               <div style={{ width: '48px' }} />

@@ -31,7 +31,6 @@ export const DownloadSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">OFFICIAL DISTRIBUTION</span>
             <h2 className="cs-section-title">
               Download Navi for <br />
               <span className="cs-monochrome-title">Windows 10 / 11 (x64)</span>
@@ -58,7 +57,7 @@ export const DownloadSection: React.FC = () => {
                   <span style={{ fontSize: '20px', fontWeight: 800, color: 'var(--cs-text-main)' }}>
                     Navi Windows Setup (.exe)
                   </span>
-                  <span className="cs-version-pill">
+                  <span style={{ fontSize: '12px', color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
                     v1.0.4
                   </span>
                 </div>

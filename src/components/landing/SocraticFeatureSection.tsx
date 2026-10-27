@@ -70,7 +70,6 @@ export const SocraticFeatureSection: React.FC = () => {
       <div className="cs-section-inner">
         <div className="cs-section-header">
           <div>
-            <span className="cs-section-tag">PROPRIETARY PEDAGOGICAL AI</span>
             <h2 className="cs-section-title">
               Socratic Guidance. <br />
               <span className="cs-monochrome-title">Never Spoon-Feeding.</span>
