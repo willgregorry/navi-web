@@ -5,7 +5,7 @@ export const DownloadSection: React.FC = () => {
   const [copiedHash, setCopiedHash] = useState(false);
   const [downloadStatus, setDownloadStatus] = useState<string | null>(null);
 
-  const sha256Checksum = '8df8c8f3cc42afb1c8ceaa8bf6b57615e5d2e7ee5577a6cbae1bd70a897639ad';
+  const sha256Checksum = '1749925b7d524e6574432aa180d9040613fc5b1eed46dd328424f0251d03382c';
 
   const handleCopyChecksum = () => {
     navigator.clipboard.writeText(sha256Checksum);
