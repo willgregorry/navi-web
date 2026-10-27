@@ -5,7 +5,7 @@ export const DownloadSection: React.FC = () => {
   const [copiedHash, setCopiedHash] = useState(false);
   const [downloadStatus, setDownloadStatus] = useState<string | null>(null);
 
-  const sha256Checksum = '8f3c7a91b2e4d058c67a3f81e9b2075a4dc38101a89c3b889e4726bf7b219014';
+  const sha256Checksum = '8df8c8f3cc42afb1c8ceaa8bf6b57615e5d2e7ee5577a6cbae1bd70a897639ad';
 
   const handleCopyChecksum = () => {
     navigator.clipboard.writeText(sha256Checksum);
@@ -14,7 +14,13 @@ export const DownloadSection: React.FC = () => {
   };
 
   const handleDownload = (filename: string) => {
-    setDownloadStatus(`Initiating secure binary stream for ${filename}...`);
+    setDownloadStatus(`Downloading ${filename}...`);
+    const link = document.createElement('a');
+    link.href = `/downloads/${filename}`;
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     setTimeout(() => {
       setDownloadStatus(null);
     }, 4000);
@@ -57,18 +63,18 @@ export const DownloadSection: React.FC = () => {
                   </span>
                 </div>
                 <div style={{ fontSize: '13px', color: 'var(--cs-text-secondary)', marginTop: '4px' }}>
-                  Standard Windows Installer · Recommended for single devices & student laptops
+                  Standard Windows Executable · Zero install, plug-and-play for students & labs
                 </div>
               </div>
               <span style={{ fontSize: '12px', fontWeight: 700, color: 'var(--cs-text-muted)', fontFamily: 'Fira Code, monospace' }}>
-                84.2 MB
+                78.7 MB
               </span>
             </div>
 
             <button
               type="button"
               className="cs-btn-download-big"
-              onClick={() => handleDownload('Navi-Setup-1.0.4-x64.exe')}
+              onClick={() => handleDownload('Navi-Setup-1.0.4.exe')}
             >
               <Download size={18} />
               <span>Download Navi-Setup-1.0.4.exe</span>

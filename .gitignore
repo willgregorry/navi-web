@@ -25,3 +25,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Download binaries (to stay under GitHub 100MB limit)
+/public/downloads/*.exe
+/public/downloads/*.zip
+/public/downloads/*.msi
+!/public/downloads/README.md
