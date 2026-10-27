@@ -136,7 +136,7 @@ export const DownloadSection: React.FC = () => {
               <button
                 type="button"
                 className="cs-tab-btn"
-                onClick={() => handleDownload('Navi-Portable-1.0.4.zip')}
+                onClick={() => handleDownload('Navi-Setup-1.0.4.exe')}
               >
                 Download
               </button>
@@ -159,7 +159,7 @@ export const DownloadSection: React.FC = () => {
               <button
                 type="button"
                 className="cs-tab-btn"
-                onClick={() => handleDownload('Navi-Enterprise-1.0.4.msi')}
+                onClick={() => handleDownload('Navi-Setup-1.0.4.exe')}
               >
                 Download
               </button>
